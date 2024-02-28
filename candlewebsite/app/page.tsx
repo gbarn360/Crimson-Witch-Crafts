@@ -1,13 +1,11 @@
 import Navbar from "./Components/Navbar";
-
+import ContentContainer from "./Components/ContentContainer";
 export default function page() {
 
     return (
-        <div className=" h-screen">
+        <div className="">
             <Navbar />
-            <div className="w-5/6 m-auto h-screen">
-                hello world
-            </div>
+            <ContentContainer />
         </div>
     )
 }
