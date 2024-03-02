@@ -11,6 +11,7 @@ export default function navbar() {
                     <ItemLink itemName={"Jarred Candles"} />
                     <ItemLink itemName={"Sculptural Candles"} />
                     <ItemLink itemName={"Wax Melts"} />
+                    <ItemLink itemName={"About us"} />
 
                 </div>
             </div>
