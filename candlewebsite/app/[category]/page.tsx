@@ -1,13 +1,13 @@
 
 import Navbar from "../Components/Navbar"
 
-export default function page({ params }: { params: { category: string } }){
+export default function page({ params }: { params: { category: string } }) {
 
 
-    return(
+    return (
         <div>
             <Navbar />
-            {params.category}
+            {params.category.replace("_", " ")}
         </div>
     )
 }
