@@ -12,7 +12,7 @@ interface candleItem {
 export default function itemThumbnail({ name, image, price }: { name: string, image: string, price: number }) {
 
     return (
-        <div className=' p-5  sm:w-1/2 md:w-1/3 lg:w-1/4 hover:transition hover:-translate-y-1 hover:cursor-pointer rounded-3xl'>
+        <div className=' hover:transition hover:-translate-y-1 hover:cursor-pointer rounded-3xl'>
             <img src={image} alt={name} className="m-auto rounded-xl" />
 
             <div className="mt-5 ">

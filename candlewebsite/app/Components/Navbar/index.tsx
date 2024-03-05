@@ -13,7 +13,7 @@ export default function navbar() {
                 <div className="flex justify-center gap-7 h-7">
 
                     <Link href={"/[category]"} as="Candles">
-                        <ItemLink itemName={"Candles"} subCategories={["Dessert_Candles", "Jarred_Candles", "Sculptural_Candles"]} />
+                        <ItemLink itemName={"Candles"} subCategories={["Dessert Candles", "Jarred Candles", "Sculptural Candles"]} />
                     </Link>
 
                     <Link href={"/[category]"} as="Wax_Melts">
