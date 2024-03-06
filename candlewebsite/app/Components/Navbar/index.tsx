@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 export default function navbar() {
     return (
-        <div className="flex justify-center sticky top-0 bg-slate-50 z-20">
-            <div className="mt-5">
+        <div className=" bg-slate-50 ">
+            <div className="w-5/6 m-auto flex flex-col">
                 <Link href={"/"}>
-                    <h1 className=" text-2xl mb-5 text-center cursor-pointer">Crimson Witch Crafts</h1>
+                    <img src='/Image/companyLogo.png' className=' w-1/5 m-auto' />
                 </Link>
 
-                <div className="flex justify-center gap-7 h-7">
+                <div className="flex justify-center gap-10  w-2/3 m-auto   ">
 
                     <Link href={"/[category]"} as="Candles">
                         <ItemLink itemName={"Candles"} subCategories={["Dessert Candles", "Jarred Candles", "Sculptural Candles"]} />
@@ -27,9 +27,8 @@ export default function navbar() {
                     <Link href={"/about"}>
                         <ItemLink itemName={"About Us"} />
                     </Link>
-
-
                 </div>
+
             </div>
         </div >
     )
