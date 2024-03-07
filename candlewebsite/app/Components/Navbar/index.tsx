@@ -7,7 +7,7 @@ export default function navbar() {
         <div className=" bg-slate-50 ">
             <div className="w-5/6 m-auto flex flex-col">
                 <Link href={"/"}>
-                    <img src='/Image/companyLogo.png' className=' w-1/5 m-auto' />
+                    <img src='/Image/companyLogo.png' className=' w-1/5 2xl:w-1/6 m-auto' />
                 </Link>
 
                 <div className="flex justify-center gap-10  w-2/3 m-auto   ">
