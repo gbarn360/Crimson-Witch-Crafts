@@ -5,9 +5,9 @@ import Link from 'next/link';
 export default function navbar() {
     return (
         <div className=" bg-slate-50 ">
-            <div className="w-5/6 m-auto flex flex-col">
+            <div className=" w-2/3 m-auto flex flex-col ">
                 <Link href={"/"}>
-                    <img src='/Image/companyLogo.png' className=' w-1/5 2xl:w-1/6 m-auto' />
+                    <img src='/Image/companyLogo.png' className='sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 m-auto' />
                 </Link>
 
                 <div className="flex justify-center gap-10  w-2/3 m-auto   ">
