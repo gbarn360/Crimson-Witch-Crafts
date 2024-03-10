@@ -1,57 +1,75 @@
-
-
 {
-    "items":[
-       {
-            "id" : 1,
-            "name": "Caramel & Chocolate and raisins",
-            "category":"candle",
-            "image": ["https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"], 
-            "price": 20.00,
-            "materials": ["parafin"],
-            "scent": "wood",
-            "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
-         },
-         {
-            "id" : 2,
-            "name": "Tree of Life mini",
-            "category":"Containers",
-            "image": ["https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"], 
-            "price": 31.99,
-            "materials": ["dried moss, crushed glass, gemstones, rope, glue"],
-            "scent": "wood",
-            "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
-         },
-         {
-            "id" : 3,
-            "name": "Caramel & Chocolate and raisins",
-            "category":"candle",
-            "image": ["https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"], 
-            "price": 20.00,
-            "materials": ["wax type: Coconut"],
-            "scent": "coconut",
-            "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
-         },
-         {
-            "id" : 4,
-            "name": "Caramel & Chocolate and raisins",
-            "category":"candle",
-            "image": ["https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"], 
-            "price": 20.00,
-            "materials": ["parafin"],
-            "scent": "wood",
-            "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
-         },
-         {
-            "id" : 5,
-            "name": "Caramel & Chocolate and raisins",
-            "category":"candle",
-            "image": ["https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"], 
-            "price": 20.00,
-            "materials": ["parafin"],
-            "scent": "wood",
-            "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
-         }
-    ]
-    
+   "items": [
+      {
+         "id": 1,
+         "name": "Caramel & Chocolate and raisins",
+         "category": "Candles",
+         "image": [
+            "https://usa.essentialparfums.com/wp-content/uploads/BOUGIE_PARFUMEE-SCENTED_CANDLE_bois-imperial.jpg",
+            "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
+         ],
+         "price": 20.00,
+         "materials": [
+            "parafin"
+         ],
+         "scent": "wood",
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+      },
+      {
+         "id": 2,
+         "name": "Tree of Life mini",
+         "category": "Containers",
+         "image": [
+            "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
+         ],
+         "price": 31.99,
+         "materials": [
+            "dried moss, crushed glass, gemstones, rope, glue"
+         ],
+         "scent": "wood",
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+      },
+      {
+         "id": 3,
+         "name": "Caramel & Chocolate and raisins",
+         "category": "Candles",
+         "image": [
+            "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
+         ],
+         "price": 20.00,
+         "materials": [
+            "wax type: Coconut"
+         ],
+         "scent": "coconut",
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+      },
+      {
+         "id": 4,
+         "name": "Caramel & Chocolate and raisins",
+         "category": "candle",
+         "image": [
+            "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
+         ],
+         "price": 20.00,
+         "materials": [
+            "parafin"
+         ],
+         "scent": "wood",
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+      },
+      {
+         "id": 5,
+         "name": "Caramel & Chocolate and raisins",
+         "category": "Jarred Candles",
+         "image": [
+            "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
+         ],
+         "price": 20.00,
+         "materials": [
+            "parafin"
+         ],
+         "scent": "wood",
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+      }
+   ]
 }
