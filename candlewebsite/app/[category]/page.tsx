@@ -5,15 +5,22 @@ import { useState, useEffect } from "react"
 import Item from "../Interfaces"
 import Link from "next/link"
 import ItemThumbnail from "../Components/ItemThumbnail"
+import { getAllItems } from "../services"
 export default function page({ params }: { params: { category: string } }) {
 
-    useEffect(() => {
+
+    async function fetchData(){
         let category = params.category.replace(/_/g, " ");
-        console.log(category)
+        let response = await getAllItems();
+        setCategory(response.filter((item: Item) => item.category === category));
 
-        axios.get("http://localhost:4000/items").then(response => setCategory(response.data.filter((item: Item) => item.category === category)));
-
+    }
+    useEffect(() => {
+        
+        fetchData();
     }, [])
+
+
 
     const [category, setCategory] = useState<Item[]>([]);
 

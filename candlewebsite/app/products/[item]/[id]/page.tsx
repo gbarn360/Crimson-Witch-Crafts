@@ -6,13 +6,18 @@ import axios from "axios"
 import ItemContent from "@/app/Components/ItemContent"
 import Item from "@/app/Interfaces"
 import Loading from "@/app/Loading/page"
+import { getIndividualItem } from "@/app/services"
 
 export default function page({ params }: { params: { item: string, id: number } }) {
-
-    useEffect(() => {
-
-        axios.get(`http://localhost:4000/items/${params.id}`).then(response => setItem(response.data));
-    }, []);
+    
+    async function fetchData(){
+        let item = await getIndividualItem(params.id);
+        setItem(item);
+    }
+     useEffect(() => {
+         fetchData();
+     }, []);
+   
 
     const [item, setItem] = useState<Item>();
 

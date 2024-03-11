@@ -38,7 +38,7 @@ export default function ItemContent({ item }: { item: Item }) {
                 <div>
                 <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl ">{item.name}</h1>
                 <p className="w-5/6 lg:w-4/5 mt-5 text-md xl:text-xl ">{item.description}</p>
-                <h1 className="mt-2"><span className="font-bold">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</h1>
+                <div className="mt-2"><span className="font-bold">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
                 </div>
                 <div className=" w-full">
                 <h1 className="font-bold text-2xl mt-5">${item.price}</h1>

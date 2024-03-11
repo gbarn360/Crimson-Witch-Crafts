@@ -1,12 +1,14 @@
 import axios from "axios";
 
-export async function getAllItems() {
-    
-    try{
-       let result = axios.get("http://localhost:4000/items").then(response =>{ return Object.values(response.data)});
+let baseUrl = "http://localhost:4000"
 
-    }
-    catch(err) {
-        console.log(err);
-    }
+export async function getAllItems() {
+    let response = await axios.get(`${baseUrl}/items`)
+    return response.data;
+}
+
+export async function getIndividualItem(id:number){
+    let response = await axios.get(`${baseUrl}/items/${id}`);
+    return response.data;
+
 }
