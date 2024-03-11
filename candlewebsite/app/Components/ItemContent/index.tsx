@@ -42,7 +42,7 @@ export default function ItemContent({ item }: { item: Item }) {
                 </div>
                 <div className=" w-full">
                 <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
-                <button className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm">ADD TO BAG</button>
+                <button className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md">ADD TO BAG</button>
                 </div>
          
 
