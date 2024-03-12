@@ -3,7 +3,7 @@
       {
          "id": 1,
          "name": "Caramel & Chocolate and raisins",
-         "category": "Candles",
+         "category": "Sculptural Candles",
          "image": [
             "https://usa.essentialparfums.com/wp-content/uploads/BOUGIE_PARFUMEE-SCENTED_CANDLE_bois-imperial.jpg",
             "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
@@ -14,7 +14,11 @@
          ],
          "scent": "wood",
          "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!",
-         "colorOptions": ["red","orange","black"]
+         "colorOptions": [
+            "red",
+            "orange",
+            "black"
+         ]
       },
       {
          "id": 2,
@@ -33,7 +37,7 @@
       {
          "id": 3,
          "name": "Caramel & Chocolate and raisins",
-         "category": "Candles",
+         "category": "Jarred Candles",
          "image": [
             "https://i.etsystatic.com/21554180/r/il/811d84/5003663132/il_570xN.5003663132_7m97.jpg"
          ],

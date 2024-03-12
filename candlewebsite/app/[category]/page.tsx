@@ -9,14 +9,22 @@ import { getAllItems } from "../services"
 export default function page({ params }: { params: { category: string } }) {
 
 
-    async function fetchData(){
+    async function fetchData() {
         let category = params.category.replace(/_/g, " ");
+
         let response = await getAllItems();
-        setCategory(response.filter((item: Item) => item.category === category));
+
+        if (category === "Candles") { //get all subcategories candles
+            setCategory(response.filter((item: Item) => item.category.split(" ")[1] === category));
+
+        }
+        else { //if item is not a candle (candle has multiple sub categories)
+            setCategory(response.filter((item: Item) => item.category === category));
+        }
 
     }
     useEffect(() => {
-        
+
         fetchData();
     }, [])
 
