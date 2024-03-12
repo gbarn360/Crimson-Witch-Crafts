@@ -2,7 +2,6 @@
 
 import Navbar from "@/app/Components/Navbar"
 import { useEffect, useState } from "react"
-import axios from "axios"
 import ItemContent from "@/app/Components/ItemContent"
 import Item from "@/app/Interfaces"
 import Loading from "@/app/Loading/page"

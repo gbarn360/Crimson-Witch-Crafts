@@ -34,15 +34,21 @@ export default function ItemContent({ item }: { item: Item }) {
                     <FontAwesomeIcon onClick={() => updateImage("right")} icon={faArrowRight} className=" p-2 text-xl cursor-pointer" />
                 </div>
             </div>
-            <div className="w-5/6 m-auto mt-10 lg:mt-0 flex flex-col items-center  lg:items-start lg:m-0 md:w-4/5 lg:w-1/2 text-center lg:text-left ">
+            <div className="w-5/6 m-auto mt-10 lg:mt-0 flex flex-col  lg:items-start lg:m-0 md:w-4/5 lg:w-1/2 text-center lg:text-left ">
                 <div>
-                <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl ">{item.name}</h1>
-                <p className="w-5/6 lg:w-4/5 mt-5 text-md xl:text-xl ">{item.description}</p>
-                <div className="mt-2"><span className="font-bold">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
+                    <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl ">{item.name}</h1>
+                    <p className="w-5/6 lg:w-4/5 mt-5 text-md xl:text-xl m-auto lg:m-0 lg:mt-5">{item.description}</p>
+                    <div className="mt-2"><span className="font-bold text-md">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
+                    {item.colorOptions ? <div className="mt-1"> 
+                        <span className="font-bold text-md">Color: </span>
+                        <select className="bg-transparent border-none">
+                            {item.colorOptions.map((color, index) => <option className="bg-slate-200 text-gray-700" key={index} value={color}>{color}</option>)}
+                        </select>
+                    </div> : " "}
                 </div>
                 <div className=" w-full">
-                <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
-                <button className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md">ADD TO BAG</button>
+                    <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
+                    <button className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md">ADD TO BAG</button>
                 </div>
          
 

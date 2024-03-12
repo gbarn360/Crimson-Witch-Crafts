@@ -13,7 +13,8 @@
             "parafin"
          ],
          "scent": "wood",
-         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!"
+         "description": "A hand poured candle, blood rose scented, in a reusable skull glass. Shimmer on top to make a perfect swirl affect when burning!",
+         "colorOptions": ["red","orange","black"]
       },
       {
          "id": 2,

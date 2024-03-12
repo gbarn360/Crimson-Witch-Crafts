@@ -6,5 +6,6 @@ export default interface Item {
     price: number,
     image: string[],
     materials: string[],
-    description: string
+    description: string,
+    colorOptions: string[]
 }
