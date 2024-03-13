@@ -28,7 +28,7 @@ export default function ItemContent({ item }: { item: Item }) {
         <div className="my-10 mb-40 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9 ">
 
             <div className="w-5/6 m-auto lg:w-1/2 ">
-                <img src={image} className="m-auto rounded-xl md:w-3/4 xl:w-2/3 "  />
+                <img src={image} className="m-auto rounded-sm md:w-3/4 xl:w-2/3 shadow-md"  />
                 <div className="flex justify-center gap-10 md:w-3/4 m-auto mt-2">
                     <FontAwesomeIcon onClick={() => updateImage("left")} icon={faArrowLeft} className=" p-2 text-xl cursor-pointer" />
                     <FontAwesomeIcon onClick={() => updateImage("right")} icon={faArrowRight} className=" p-2 text-xl cursor-pointer" />

@@ -6,7 +6,7 @@ import HamburgerMenu from "../HamburgerMenu";
 
 export default function navbar() {
     return (
-        <div className=" bg-slate-50 ">
+        <div className=" bg-bg">
             <div className=" md:w-4/5 md:m-auto flex justify-between md:flex-col ">
 
                 <Link href={"/"} className="ml-5 w-1/3 sm:w-1/4 md:w-2/3 flex justify-start md:m-auto">
