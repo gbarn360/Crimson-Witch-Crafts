@@ -9,7 +9,7 @@ export default function navbar() {
         <div className=" bg-slate-50 ">
             <div className=" md:w-4/5 md:m-auto flex justify-between md:flex-col ">
 
-                <Link href={"/"} className="ml-5 w-1/4 md:w-2/3 flex justify-start md:m-auto">
+                <Link href={"/"} className="ml-5 w-1/3 sm:w-1/4 md:w-2/3 flex justify-start md:m-auto">
                     <img src='/Image/companyLogo.png' className=' md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 md:m-auto' />
                 </Link>
                 <HamburgerMenu />

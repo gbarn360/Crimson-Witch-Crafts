@@ -9,3 +9,8 @@ export default interface Item {
     description: string,
     colorOptions: string[]
 }
+
+export interface LinkItem{
+    itemName: string,
+    subCategories?: string[]
+}
