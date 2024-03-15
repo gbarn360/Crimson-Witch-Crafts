@@ -3,11 +3,25 @@ import Item from "@/app/Interfaces"
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/State/state";
+import { addItem } from "@/app/State/Cart/CartSlice";
+
 
 
 export default function ItemContent({ item }: { item: Item }) {
 
+    const cart = useSelector((state : RootState)=> state.cart.cartItems)
+    const dispatch = useDispatch();
+
+    function addItemToCart(){
+        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price,color: color,quantity: 1}));
+
+    }
+
+
     const [image, setImage] = useState(item.image[0]);
+    const [color,setColor] = useState(item.colorOptions ?item.colorOptions[0] : null);
 
     function updateImage(direction: string) {
 
@@ -41,14 +55,14 @@ export default function ItemContent({ item }: { item: Item }) {
                     <div className="mt-2"><span className="font-bold text-md">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
                     {item.colorOptions ? <div className="mt-1"> 
                         <span className="font-bold text-md">Color: </span>
-                        <select className="bg-transparent border-none">
+                        <select className="bg-transparent border-none" onChange={(e)=>setColor(e.target.value)}>
                             {item.colorOptions.map((color, index) => <option className="bg-slate-200 text-gray-700" key={index} value={color}>{color}</option>)}
                         </select>
                     </div> : " "}
                 </div>
                 <div className=" w-full">
                     <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
-                    <button className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
+                    <button onClick={()=>addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
                 </div>
          
 

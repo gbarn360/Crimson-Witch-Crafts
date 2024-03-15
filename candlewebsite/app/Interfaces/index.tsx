@@ -10,7 +10,7 @@ export default interface Item {
     colorOptions: string[]
 }
 
-export interface CartItem{
+export interface CartItemI{
     id:number,
     name:string,
     image:string[],

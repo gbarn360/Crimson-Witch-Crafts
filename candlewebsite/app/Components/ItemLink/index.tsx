@@ -7,8 +7,6 @@ import { LinkItem } from "@/app/Interfaces";
 
 export default function ItemLink({ itemName, subCategories }: LinkItem) {
 
-    useEffect(() =>{console.log(subCategories)},[])
-
     const [hovered, setHovered] = useState(false);
 
 
