@@ -18,7 +18,7 @@ export default function CartContent() {
                 <div className="w-4/5 m-auto mt-10 flex flex-col lg:flex-row">
                     <div className="lg:w-2/3">
                         <h1 className="text-2xl">Cart</h1>
-                        {cart.map((item, index) => (<CartItem key={index} item={item}/>))}
+                        {cart.map((item, index) => (<CartItem key={index} index={index} item={item}/>))}
                     </div>
                     <div className="lg:w-1/3">
                         <h1 className="text-2xl">Summary</h1>

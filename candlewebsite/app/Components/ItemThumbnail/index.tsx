@@ -1,12 +1,10 @@
 'use client'
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/State/state";
+import { useDispatch} from "react-redux";
 import { addItem } from "@/app/State/Cart/CartSlice";
 import Item from "@/app/Interfaces";
 
 
 export default function itemThumbnail({ item }: { item: Item }) {
-    const cart = useSelector((state : RootState)=> state.cart.cartItems)
     const dispatch = useDispatch();
 
     function addItemToCart(e:React.MouseEvent<HTMLButtonElement>){

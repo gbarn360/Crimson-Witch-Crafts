@@ -4,24 +4,23 @@ import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/State/state";
 import { addItem } from "@/app/State/Cart/CartSlice";
 
 
 
 export default function ItemContent({ item }: { item: Item }) {
 
-    const cart = useSelector((state : RootState)=> state.cart.cartItems)
     const dispatch = useDispatch();
 
     function addItemToCart(){
-        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price,color: color,quantity: 1}));
+        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price * quantity,color: color,quantity: quantity}));
 
     }
 
 
     const [image, setImage] = useState(item.image[0]);
     const [color,setColor] = useState(item.colorOptions ?item.colorOptions[0] : null);
+    const [quantity,setQuantity] = useState(1);
 
     function updateImage(direction: string) {
 
@@ -59,6 +58,15 @@ export default function ItemContent({ item }: { item: Item }) {
                             {item.colorOptions.map((color, index) => <option className="bg-slate-200 text-gray-700" key={index} value={color}>{color}</option>)}
                         </select>
                     </div> : " "}
+                    <div className="mt-2">
+                        <span className="font-bold text-md">Quantity:</span>
+                        <select className="bg-transparent" onChange={(e)=>setQuantity(Number(e.target.value))}>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                        </select>
+                        </div>
                 </div>
                 <div className=" w-full">
                     <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
