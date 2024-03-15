@@ -10,7 +10,18 @@ export default interface Item {
     colorOptions: string[]
 }
 
+export interface CartItem{
+    id:number,
+    name:string,
+    image:string[],
+    price:number,
+    color?: string
+    quantity: number,
+}
+
 export interface LinkItem{
     itemName: string,
     subCategories?: string[]
 }
+
+

@@ -41,7 +41,7 @@ export default function page({ params }: { params: { category: string } }) {
                 <div className='flex flex-wrap'>
                     {category.map((item: Item, index: number) => (
                         <Link key={index} href={"/products/[itemPage][id]"} as={`/products/${item.name.replace(/\s/g, "_")}/${item.id}`} className='p-5 sm:w-1/2 md:w-1/3 2xl:w-1/4'>
-                            <ItemThumbnail name={item.name} image={item.image} price={item.price} />
+                            <ItemThumbnail id={item.id} name={item.name} image={item.image} price={item.price} />
                         </Link>
 
 

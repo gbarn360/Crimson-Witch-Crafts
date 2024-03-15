@@ -1,13 +1,18 @@
 'use client'
 
 import Item from "@/app/Interfaces";
+import { RootState } from "@/app/State/state";
 import { useState, useEffect } from "react"
+import { useSelector } from "react-redux";
 
 export default function CartContent() {
+    const cart = useSelector((state : RootState)=> state.cart.cartItems)
+
 
     const [cartItems, setCartItems] = useState<Item[]>([]);
 
     useEffect(() => {
+        console.log(cart)
     }, [])
     return (
         <div>
