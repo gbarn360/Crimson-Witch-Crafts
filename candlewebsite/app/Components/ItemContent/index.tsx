@@ -49,8 +49,8 @@ export default function ItemContent({ item }: { item: Item }) {
             </div>
             <div className="w-5/6 m-auto mt-10 lg:mt-0 flex flex-col  lg:items-start lg:m-0 md:w-4/5 lg:w-1/2 text-center lg:text-left ">
                 <div>
-                    <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl ">{item.name}</h1>
-                    <p className="w-5/6 lg:w-4/5 mt-5 text-md xl:text-xl m-auto lg:m-0 lg:mt-5">{item.description}</p>
+                    <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-4xl ">{item.name}</h1>
+                    <p className="w-5/6 lg:w-4/5 mt-5  xl:text-lg m-auto lg:m-0 lg:mt-5">{item.description}</p>
                     <div className="mt-2"><span className="font-bold text-md">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
                     {item.colorOptions ? <div className="mt-1"> 
                         <span className="font-bold text-md">Color: </span>
