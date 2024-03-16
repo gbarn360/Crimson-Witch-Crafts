@@ -5,6 +5,7 @@ import { removeItem,updateItemColor,updateItemPrice } from "@/app/State/Cart/Car
 import { CartItemI } from "@/app/Interfaces"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import Link from "next/link";
 
 export default function CartItem({index,item}:{index:number,item:CartItemI}) {
 
@@ -12,7 +13,7 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
 
 
     function deleteItemFromCart(){
-        dispatch(removeItem(item.id));
+        dispatch(removeItem({id:item.id,color:item.color}));
     }
     function updatePrice(newQuantity: number){
        dispatch(updateItemPrice({index:index,quantity:newQuantity}));
@@ -23,8 +24,10 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
 
     return(
         <div className="flex my-2 border-y-2  lg:p-4">
-            <img src={item.image[0]} className="w-1/2 lg:w-1/6"/>
-            <div className="mt-2 ml-2 w-full">
+            <Link key={index} href={"/products/[itemPage][id]"} as={`/products/${item.name.replace(/\s/g, "_")}/${item.id}`} className='w-1/4 xl:w-1/5'>
+                <img src={item.image[0]} className=""/>
+            </Link>
+            <div className="mt-2 ml-2 w-full  flex flex-col justify-evenly">
                 <div className="flex  justify-between">
                     <h1 className="">{item.name}</h1>
                     <h2 className="font-bold">${item.price}</h2>
@@ -32,21 +35,24 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
                 <div className="flex">
                     <h2 className="font-bold">Quantity : </h2>
                     <select className="bg-transparent" onChange={(e)=>{updatePrice(Number(e.target.value))}}>
-                        <option value={item.quantity}>{item.quantity}</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
+                       {[1,2,3,4].map((option)=>(                        
+                       <option key={option} value={option} selected={option === item.quantity}>{option}</option>
+                        ))}
                     </select>
                 </div>
                 {item.color ? 
                 <div className="flex">
                     <h2 className="font-bold">Color : </h2>
                     <select className="bg-transparent" onChange={(e)=>{updateColor(e.target.value)}}>
-                        <option value={item.color}>{item.color}</option>
-                        <option value={"red"}>red</option>
-                        <option value={"black"}>black</option>
+                        {item.colorOptions ? item.colorOptions.map((option,id)=>(
+                        <option key={id} value={option} selected={option === item.color}>{option}</option>
+
+                        )):""} 
                     </select>
                 </div> : " "}
-                <button onClick={()=>deleteItemFromCart()}><FontAwesomeIcon icon={faTrashCan} className="hover:text-red-700 hover:transition-colors" /></button>
+                <div>
+                    <button onClick={()=>deleteItemFromCart()}><FontAwesomeIcon icon={faTrashCan} className="  hover:text-red-700 hover:transition-colors" /></button>
+                </div>
             </div>
         </div>
     )

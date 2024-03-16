@@ -13,7 +13,7 @@ export default function ItemContent({ item }: { item: Item }) {
     const dispatch = useDispatch();
 
     function addItemToCart(){
-        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price * quantity,color: color,quantity: quantity}));
+        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price * quantity,color: color,colorOptions:item.colorOptions,quantity: quantity}));
 
     }
 

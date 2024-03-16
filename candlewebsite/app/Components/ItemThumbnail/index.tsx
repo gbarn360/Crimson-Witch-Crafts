@@ -10,7 +10,7 @@ export default function itemThumbnail({ item }: { item: Item }) {
     function addItemToCart(e:React.MouseEvent<HTMLButtonElement>){
         e.preventDefault();
         
-        item.colorOptions ? dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price,color:item.colorOptions[0],quantity: 1}))
+        item.colorOptions ? dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price,color:item.colorOptions[0],colorOptions:item.colorOptions,quantity: 1}))
         /*item doesn't have color option*/ :  dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price,quantity: 1}))
 
     }

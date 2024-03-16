@@ -15,7 +15,8 @@ export interface CartItemI{
     name:string,
     image:string[],
     price:number,
-    color?: string
+    color?: string,
+    colorOptions?: string[],
     quantity: number,
 }
 
