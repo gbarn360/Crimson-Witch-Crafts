@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Item from '@/app/Interfaces';
 import { getAllItems } from '@/app/services';
 import ContentContainer from "./Components/ContentContainer";
+import Footer from "./Components/Footer";
 export default function page() {
 
 
@@ -26,6 +27,7 @@ export default function page() {
         <Provider store={store}>
             <Navbar />
             <ContentContainer items={items}/>
+            <Footer />
         </Provider>
     )
 }

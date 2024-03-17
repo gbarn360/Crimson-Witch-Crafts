@@ -51,8 +51,8 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
                         )):""} 
                     </select>
                 </div> : " "}
-                <div>
-                    <button onClick={()=>deleteItemFromCart()}><FontAwesomeIcon icon={faTrashCan} className="  hover:text-red-700 hover:transition-colors" /></button>
+                <div className=" flex justify-end">
+                    <button className=" text-sm hover:text-red-700 hover:transition-colors" onClick={()=>deleteItemFromCart()}> Remove Item</button>
                 </div>
             </div>
         </div>
