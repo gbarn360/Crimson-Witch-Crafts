@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ItemThumbnail from '../ItemThumbnail';
+import ItemThumbnail from './ItemThumbnail';
 import Link from 'next/link';
 import Item from '@/app/Interfaces';
 

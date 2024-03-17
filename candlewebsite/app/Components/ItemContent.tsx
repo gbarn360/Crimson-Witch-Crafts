@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "@/app/State/Cart/CartSlice";
+import Quantity from "./Quantity";
 
 
 
@@ -45,10 +46,10 @@ export default function ItemContent({ item }: { item: Item }) {
     return (
         <div className="my-10 mb-40 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9 ">
 
-            <div className="w-5/6 lg:w-1/2 ">
-                <div className="relative  md:w-3/4 xl:w-2/3 m-auto">
+            <div className="w-5/6 lg:w-1/2  m-auto">
+                <div className="md:w-3/4 xl:w-2/3 m-auto">
                     <img src={image} className="m-auto rounded-sm  shadow-md"  />
-                    {displayMessage ? <h1 className="absolute top-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
+                    {displayMessage ? <h1 className="absolute top-0 left-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
                 </div>
 
                 <div className="flex justify-center gap-10 md:w-3/4 m-auto mt-2">
@@ -67,8 +68,9 @@ export default function ItemContent({ item }: { item: Item }) {
                             {item.colorOptions.map((color, index) => <option className="bg-slate-200 text-gray-700" key={index} value={color}>{color}</option>)}
                         </select>
                     </div> : " "}
-                    <div className="mt-2">
-                        <span className="font-bold text-md">Quantity:</span>
+                    <div className="mt-4 flex justify-center lg:justify-start">
+                        <Quantity quantity={quantity} setQuantity={setQuantity}/>
+                        {/* <span className="font-bold text-md">Quantity:</span>
                         <select className="bg-transparent" onChange={(e)=>setQuantity(Number(e.target.value))}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -76,7 +78,7 @@ export default function ItemContent({ item }: { item: Item }) {
                             <option value={4}>4</option>
                             <option value={5}>5</option>
 
-                        </select>
+                        </select> */}
                         </div>
                 </div>
                 <div className=" w-full">

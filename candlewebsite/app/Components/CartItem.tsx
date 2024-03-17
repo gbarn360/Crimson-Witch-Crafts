@@ -2,15 +2,21 @@
 
 import { useDispatch} from "react-redux";
 import { removeItem,updateItemColor,updateItemPrice } from "@/app/State/Cart/CartSlice";
+import { useState,useEffect } from "react";
 import { CartItemI } from "@/app/Interfaces"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
+import Quantity from "./Quantity";
 
 export default function CartItem({index,item}:{index:number,item:CartItemI}) {
 
     const dispatch = useDispatch();
+    const [quantity,setQuantity] = useState(item.quantity);
 
+    useEffect(() => {
+        updatePrice(quantity);
+    },[quantity]);
 
     function deleteItemFromCart(){
         dispatch(removeItem({id:item.id,color:item.color}));
@@ -29,16 +35,11 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
             </Link>
             <div className="mt-2 ml-2 w-full  flex flex-col justify-evenly">
                 <div className="flex  justify-between">
-                    <h1 className="">{item.name}</h1>
-                    <h2 className="font-bold">${item.price}</h2>
+                    <h1 className="2xl:text-xl">{item.name}</h1>
+                    <h2 className="font-bold 2xl:text-xl">${item.price}</h2>
                 </div>
-                <div className="flex">
-                    <h2 className="font-bold">Quantity : </h2>
-                    <select className="bg-transparent" onChange={(e)=>{updatePrice(Number(e.target.value))}}>
-                       {[1,2,3,4,5].map((option)=>(                        
-                       <option key={option} value={option} selected={option === item.quantity}>{option}</option>
-                        ))}
-                    </select>
+                <div className="flex my-2">
+                    <Quantity quantity={quantity} setQuantity={setQuantity}/>
                 </div>
                 {item.color ? 
                 <div className="flex">

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBars } from '@fortawesome/free-solid-svg-icons';
 import {useState,useEffect} from "react"
 import Link from 'next/link';
-import HamburgerItemLink from '../HamburgerItemLink';
+import HamburgerItemLink from './HamburgerItemLink';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 export default function HamburgerMenu(){

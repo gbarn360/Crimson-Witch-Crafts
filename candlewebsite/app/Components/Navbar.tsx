@@ -1,10 +1,10 @@
-import ItemLink from "../ItemLink"
+import ItemLink from "./ItemLink"
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
-import HamburgerMenu from "../HamburgerMenu";
+import HamburgerMenu from "./HamburgerMenu";
 
-export default function navbar() {
+export default function Navbar() {
     return (
         <div className=" bg-bg">
             <div className=" md:w-4/5 md:m-auto flex justify-between md:flex-col ">
