@@ -1,7 +1,6 @@
 import Item from "@/app/Interfaces"
 import { CartItemI } from "@/app/Interfaces"
 import { createSlice } from "@reduxjs/toolkit";
-
 interface CartState{
     cartItems: CartItemI[];
 }
@@ -10,35 +9,35 @@ const initialState : CartState = {
     cartItems: [],
 };
 
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        addItem : (state,action) =>{
+        addItem: (state, action) => {
 
-            
-            let matched = false;
-            state.cartItems.map((item) =>
-            { 
-                let currentItem = {
-                    id: item.id,
-                    color: item.color
-                }
-                let newItem = {
-                    id: action.payload.id,
-                    color: action.payload.color
-                }
-
-                if(JSON.stringify(currentItem) === JSON.stringify(newItem)){
-                    item.quantity += action.payload.quantity; 
-                    item.price *= item.quantity;
-                    matched = true;
-                    return;
-                }
-            })
-       
-            if(matched === false) state.cartItems.push(action.payload); //no match found
+            let matchedItemIndex ;
+           if(action.payload.color){
+                matchedItemIndex = state.cartItems.findIndex(item => 
+                    item.id === action.payload.id && item.color === action.payload.color
+                );
+           }
+           else{
+                matchedItemIndex = state.cartItems.findIndex(item => 
+                    item.id === action.payload.id
+                );
+           }
+        
+            if (matchedItemIndex !== -1) {
+                // Item already exists in the cart
+                state.cartItems[matchedItemIndex].price += action.payload.price;
+                state.cartItems[matchedItemIndex].quantity += action.payload.quantity;
+            } else {
+                // Item doesn't exist in the cart
+                state.cartItems.push(action.payload);
+            }
         },
+    
         removeItem: (state, action) => {
             state.cartItems = state.cartItems.filter((item) => {
                 return !(item.id === action.payload.id && item.color === action.payload.color);

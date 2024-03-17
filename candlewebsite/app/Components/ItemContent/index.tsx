@@ -11,16 +11,21 @@ import { addItem } from "@/app/State/Cart/CartSlice";
 export default function ItemContent({ item }: { item: Item }) {
 
     const dispatch = useDispatch();
+    const [image, setImage] = useState(item.image[0]);
+    const [color,setColor] = useState(item.colorOptions ?item.colorOptions[0] : null);
+    const [quantity,setQuantity] = useState(1);
+    const [displayMessage,setDisplayMessage] = useState(false);
 
     function addItemToCart(){
         dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price * quantity,color: color,colorOptions:item.colorOptions,quantity: quantity}));
 
+        setDisplayMessage(true);
+        setTimeout(() => {setDisplayMessage(false)},3000);
+        
     }
 
 
-    const [image, setImage] = useState(item.image[0]);
-    const [color,setColor] = useState(item.colorOptions ?item.colorOptions[0] : null);
-    const [quantity,setQuantity] = useState(1);
+  
 
     function updateImage(direction: string) {
 
@@ -40,8 +45,12 @@ export default function ItemContent({ item }: { item: Item }) {
     return (
         <div className="my-10 mb-40 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9 ">
 
-            <div className="w-5/6 m-auto lg:w-1/2 ">
-                <img src={image} className="m-auto rounded-sm md:w-3/4 xl:w-2/3 shadow-md"  />
+            <div className="w-5/6 lg:w-1/2 ">
+                <div className="relative  md:w-3/4 xl:w-2/3 m-auto">
+                    <img src={image} className="m-auto rounded-sm  shadow-md"  />
+                    {displayMessage ? <h1 className="absolute top-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
+                </div>
+
                 <div className="flex justify-center gap-10 md:w-3/4 m-auto mt-2">
                     <FontAwesomeIcon onClick={() => updateImage("left")} icon={faArrowLeft} className=" p-2 text-xl cursor-pointer" />
                     <FontAwesomeIcon onClick={() => updateImage("right")} icon={faArrowRight} className=" p-2 text-xl cursor-pointer" />
@@ -65,6 +74,8 @@ export default function ItemContent({ item }: { item: Item }) {
                             <option value={2}>2</option>
                             <option value={3}>3</option>
                             <option value={4}>4</option>
+                            <option value={5}>5</option>
+
                         </select>
                         </div>
                 </div>

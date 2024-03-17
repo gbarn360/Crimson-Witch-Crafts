@@ -35,7 +35,7 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
                 <div className="flex">
                     <h2 className="font-bold">Quantity : </h2>
                     <select className="bg-transparent" onChange={(e)=>{updatePrice(Number(e.target.value))}}>
-                       {[1,2,3,4].map((option)=>(                        
+                       {[1,2,3,4,5].map((option)=>(                        
                        <option key={option} value={option} selected={option === item.quantity}>{option}</option>
                         ))}
                     </select>
