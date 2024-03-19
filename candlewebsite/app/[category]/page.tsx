@@ -13,9 +13,9 @@ import ContentContainer from "../Components/ContentContainer"
 export default function page({ params }: { params: { category: string } }) {
 
     const [items, setItems] = useState<Item[]>([]);
+    const [category, setCategory] = useState(params.category.replace(/_/g, " "))
 
     async function fetchData() {
-        let category = params.category.replace(/_/g, " ");
 
         let response = await getAllItems();
 
@@ -36,9 +36,10 @@ export default function page({ params }: { params: { category: string } }) {
 
 
     return (
-        <Provider store ={store}>
+        <Provider store={store}>
             <Navbar />
-            <ContentContainer items={items}/>
+            <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
+            <ContentContainer items={items} />
         </Provider>
     )
 }
