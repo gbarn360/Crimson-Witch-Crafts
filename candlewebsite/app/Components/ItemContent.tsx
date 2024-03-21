@@ -13,20 +13,20 @@ export default function ItemContent({ item }: { item: Item }) {
 
     const dispatch = useDispatch();
     const [image, setImage] = useState(item.image[0]);
-    const [color,setColor] = useState(item.colorOptions ?item.colorOptions[0] : null);
-    const [quantity,setQuantity] = useState(1);
-    const [displayMessage,setDisplayMessage] = useState(false);
+    const [color, setColor] = useState(item.colorOptions ? item.colorOptions[0] : null);
+    const [quantity, setQuantity] = useState(1);
+    const [displayMessage, setDisplayMessage] = useState(false);
 
-    function addItemToCart(){
-        dispatch(addItem({id:item.id,name:item.name,image:item.image,price:item.price * quantity,color: color,colorOptions:item.colorOptions,quantity: quantity}));
+    function addItemToCart() {
+        dispatch(addItem({ id: item.id, name: item.name, image: item.image, price: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
 
         setDisplayMessage(true);
-        setTimeout(() => {setDisplayMessage(false)},3000);
-        
+        setTimeout(() => { setDisplayMessage(false) }, 3000);
+
     }
 
 
-  
+
 
     function updateImage(direction: string) {
 
@@ -48,8 +48,8 @@ export default function ItemContent({ item }: { item: Item }) {
 
             <div className="w-5/6 lg:w-1/2  m-auto">
                 <div className="md:w-3/4 xl:w-2/3 m-auto">
-                    <img src={image} className="m-auto rounded-sm  shadow-md"  />
-                    {displayMessage ? <h1 className="absolute top-0 left-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
+                    <img src={image} className="m-auto rounded-sm  shadow-md" />
+                    {displayMessage ? <h1 className="fixed top-0 left-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
                 </div>
 
                 <div className="flex justify-center gap-10 md:w-3/4 m-auto mt-2">
@@ -62,14 +62,14 @@ export default function ItemContent({ item }: { item: Item }) {
                     <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-4xl ">{item.name}</h1>
                     <p className="w-5/6 lg:w-4/5 mt-5  xl:text-lg m-auto lg:m-0 lg:mt-5">{item.description}</p>
                     <div className="mt-2"><span className="font-bold text-md">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
-                    {item.colorOptions ? <div className="mt-1"> 
+                    {item.colorOptions ? <div className="mt-1">
                         <span className="font-bold text-md">Color: </span>
-                        <select className="bg-transparent border-none" onChange={(e)=>setColor(e.target.value)}>
+                        <select className="bg-transparent border-none" onChange={(e) => setColor(e.target.value)}>
                             {item.colorOptions.map((color, index) => <option className="bg-slate-200 text-gray-700" key={index} value={color}>{color}</option>)}
                         </select>
                     </div> : " "}
                     <div className="mt-4 flex justify-center lg:justify-start">
-                        <Quantity quantity={quantity} setQuantity={setQuantity}/>
+                        <Quantity quantity={quantity} setQuantity={setQuantity} />
                         {/* <span className="font-bold text-md">Quantity:</span>
                         <select className="bg-transparent" onChange={(e)=>setQuantity(Number(e.target.value))}>
                             <option value={1}>1</option>
@@ -79,13 +79,13 @@ export default function ItemContent({ item }: { item: Item }) {
                             <option value={5}>5</option>
 
                         </select> */}
-                        </div>
+                    </div>
                 </div>
                 <div className=" w-full">
                     <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
-                    <button onClick={()=>addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
+                    <button onClick={() => addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
                 </div>
-         
+
 
             </div>
 
