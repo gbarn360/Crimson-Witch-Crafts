@@ -4,8 +4,6 @@ import { useDispatch} from "react-redux";
 import { removeItem,updateItemColor,updateItemPrice } from "@/app/State/Cart/CartSlice";
 import { useState,useEffect } from "react";
 import { CartItemI } from "@/app/Interfaces"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import Quantity from "./Quantity";
 

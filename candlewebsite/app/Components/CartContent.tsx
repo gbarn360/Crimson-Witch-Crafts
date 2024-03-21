@@ -2,6 +2,7 @@
 
 import { RootState } from "@/app/State/state";
 import { useSelector } from "react-redux";
+import { checkoutUser } from "../services";
 import CartItem from "./CartItem";
 export default function CartContent() {
     const cart = useSelector((state : RootState)=> state.cart.cartItems)
@@ -10,7 +11,7 @@ export default function CartContent() {
 
         let totalPrice = cart.reduce((price,item)=>{return price + item.price},0);
         
-        return totalPrice;
+        return totalPrice.toFixed(2);
     }
 
     return (
@@ -22,7 +23,7 @@ export default function CartContent() {
                         {cart.map((item, index) => (<CartItem key={index} index={index} item={item}/>))}
                     </div>
                     <div className="relative   w-1/2 flex justify-center">
-                        <button className="p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
+                        <button onClick={()=>checkoutUser(cart)} className="p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
                         <h2 className="absolute right-0 top-0 text-lg">Total: <span className="font-bold">${getTotalPrice()}</span></h2>
                     </div>
                 </div> :
