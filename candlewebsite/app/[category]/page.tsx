@@ -1,10 +1,8 @@
 "use client"
 import Navbar from "../Components/Navbar"
-import axios from "axios"
 import { useState, useEffect } from "react"
 import Item from "../Interfaces"
-import Link from "next/link"
-import ItemThumbnail from "../Components/ItemThumbnail"
+import Footer from "../Components/Footer"
 import { getAllItems } from "../services"
 import { Provider } from "react-redux"
 import { store } from "../State/state"
@@ -40,6 +38,7 @@ export default function page({ params }: { params: { category: string } }) {
             <Navbar />
             <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
             <ContentContainer items={items} />
+            <Footer />
         </Provider>
     )
 }

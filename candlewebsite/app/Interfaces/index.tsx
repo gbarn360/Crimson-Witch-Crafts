@@ -14,7 +14,8 @@ export interface CartItemI{
     id:number,
     name:string,
     image:string[],
-    price:number,
+    itemPrice:number,
+    totalPrice:number,
     color?: string,
     colorOptions?: string[],
     quantity: number,
@@ -23,6 +24,10 @@ export interface CartItemI{
 export interface LinkItem{
     itemName: string,
     subCategories?: string[]
+}
+
+export interface CartState{
+    cartItems : CartItemI[];
 }
 
 

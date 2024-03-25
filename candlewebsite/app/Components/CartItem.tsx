@@ -27,16 +27,19 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
     }
 
     return(
-        <div className="flex my-2 border-y-2  lg:p-4">
+        <div className=" m-auto sm:flex my-2 border-y-2  lg:p-4">
             <Link key={index} href={"/products/[itemPage][id]"} as={`/products/${item.name.replace(/\s/g, "_")}/${item.id}`} className='w-1/4 xl:w-1/5'>
                 <img src={item.image[0]} className=""/>
             </Link>
             <div className="mt-2 ml-2 w-full  flex flex-col justify-evenly">
                 <div className="flex  justify-between">
                     <h1 className="2xl:text-xl">{item.name}</h1>
-                    <h2 className="font-bold 2xl:text-xl">${item.price}</h2>
+                    <div className="">
+                        <h2 className="font-bold 2xl:text-xl">${item.totalPrice.toFixed(2)}</h2>
+                        <h2 className="text-slate-400 text-xs ">${item.itemPrice.toFixed(2)} each</h2>
+                    </div>
                 </div>
-                <div className="flex my-2">
+                <div className="flex  my-2">
                     <Quantity quantity={quantity} setQuantity={setQuantity}/>
                 </div>
                 {item.color ? 

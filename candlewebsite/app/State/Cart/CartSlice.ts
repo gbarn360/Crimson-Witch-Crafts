@@ -1,13 +1,29 @@
-import Item from "@/app/Interfaces"
 import { CartItemI } from "@/app/Interfaces"
 import { createSlice } from "@reduxjs/toolkit";
-interface CartState{
-    cartItems: CartItemI[];
+import { CartState } from "@/app/Interfaces";
+
+
+function loadCartState() : CartState{
+
+   
+    const storedState = localStorage.getItem("cartState");
+    if(storedState){
+        return JSON.parse(storedState);
+    }
+    else{
+        return{
+            cartItems : []
+        }
+    }
 }
 
-const initialState : CartState = {
-    cartItems: [],
-};
+function saveCartState(state:CartState) : void{
+
+    localStorage.setItem("cartState", JSON.stringify(state));
+
+}
+
+const initialState : CartState = loadCartState();
 
 
 const cartSlice = createSlice({
@@ -30,28 +46,35 @@ const cartSlice = createSlice({
         
             if (matchedItemIndex !== -1) {
                 // Item already exists in the cart
-                state.cartItems[matchedItemIndex].price += action.payload.price;
+                state.cartItems[matchedItemIndex].totalPrice += action.payload.totalPrice;
                 state.cartItems[matchedItemIndex].quantity += action.payload.quantity;
             } else {
                 // Item doesn't exist in the cart
                 state.cartItems.push(action.payload);
             }
+            saveCartState(state);
         },
     
         removeItem: (state, action) => {
             state.cartItems = state.cartItems.filter((item) => {
                 return !(item.id === action.payload.id && item.color === action.payload.color);
             });
+            saveCartState(state);
+
         },
         
         updateItemPrice : (state,action) =>{
             const {index,quantity} = action.payload;
-                 state.cartItems[index].price = state.cartItems[index].price * quantity / state.cartItems[index].quantity;
+                 state.cartItems[index].totalPrice = state.cartItems[index].totalPrice * quantity / state.cartItems[index].quantity;
                  state.cartItems[index].quantity = quantity;
+                 saveCartState(state);
+
         },
         updateItemColor : (state,action) =>{
             const {index,color} = action.payload;
                  state.cartItems[index].color = color;
+                 saveCartState(state);
+
         }
     }
 })

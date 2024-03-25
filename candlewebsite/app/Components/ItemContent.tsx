@@ -18,7 +18,7 @@ export default function ItemContent({ item }: { item: Item }) {
     const [displayMessage, setDisplayMessage] = useState(false);
 
     function addItemToCart() {
-        dispatch(addItem({ id: item.id, name: item.name, image: item.image, price: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
+        dispatch(addItem({ id: item.id, name: item.name, image: item.image,itemPrice:item.price, totalPrice: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
 
         setDisplayMessage(true);
         setTimeout(() => { setDisplayMessage(false) }, 3000);
@@ -70,19 +70,11 @@ export default function ItemContent({ item }: { item: Item }) {
                     </div> : " "}
                     <div className="mt-4 flex justify-center lg:justify-start">
                         <Quantity quantity={quantity} setQuantity={setQuantity} />
-                        {/* <span className="font-bold text-md">Quantity:</span>
-                        <select className="bg-transparent" onChange={(e)=>setQuantity(Number(e.target.value))}>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-
-                        </select> */}
+                       
                     </div>
                 </div>
                 <div className=" w-full">
-                    <h1 className="font-bold text-2xl mt-5">${item.price}</h1>
+                    <h1 className="font-bold text-2xl mt-5">${item.price.toFixed(2)}</h1>
                     <button onClick={() => addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
                 </div>
 
