@@ -7,6 +7,7 @@ import { getAllItems } from "../services"
 import { Provider } from "react-redux"
 import { store } from "../State/state"
 import ContentContainer from "../Components/ContentContainer"
+import Loading from "../Components/Loading"
 
 export default function page({ params }: { params: { category: string } }) {
 
@@ -37,7 +38,7 @@ export default function page({ params }: { params: { category: string } }) {
         <Provider store={store}>
             <Navbar />
             <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
-            <ContentContainer items={items} />
+            {items.length > 0 ? <ContentContainer items={items}/> : <Loading />}
             <Footer />
         </Provider>
     )
