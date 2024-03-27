@@ -45,12 +45,12 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
                 {item.color ? 
                 <div className="flex">
                     <h2 className="font-bold">Color : </h2>
-                    <select className="bg-transparent" onChange={(e)=>{updateColor(e.target.value)}}>
-                        {item.colorOptions ? item.colorOptions.map((option,id)=>(
-                        <option key={id} value={option} selected={option === item.color}>{option}</option>
-
-                        )):""} 
+                    <select className="bg-transparent" value={item.color} onChange={(e) => updateColor(e.target.value)}>
+                        {item.colorOptions ? item.colorOptions.map((option, id) => (
+                            <option key={id} value={option}>{option}</option>
+                        )) : ""}
                     </select>
+
                 </div> : " "}
                 <div className=" flex justify-end">
                     <button className=" text-sm hover:text-red-700 hover:transition-colors" onClick={()=>deleteItemFromCart()}> Remove Item</button>

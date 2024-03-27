@@ -1,13 +1,13 @@
 "use client"
-import Navbar from "../Components/Navbar"
+import Navbar from "../../Components/Navbar"
 import { useState, useEffect } from "react"
-import Item from "../Interfaces"
-import Footer from "../Components/Footer"
-import { getAllItems } from "../services"
+import Item from "../../Interfaces"
+import Footer from "../../Components/Footer"
+import { getAllItems } from "../../services"
 import { Provider } from "react-redux"
-import { store } from "../State/state"
-import ContentContainer from "../Components/ContentContainer"
-import Loading from "../Components/Loading"
+import { store } from "../../State/state"
+import ContentContainer from "../../Components/ContentContainer"
+import Loading from "../../Components/Loading"
 
 export default function page({ params }: { params: { category: string } }) {
 

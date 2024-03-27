@@ -17,15 +17,15 @@ export default function Navbar() {
                 <div className=" w-full hidden md:flex relative ">
 
                     <div className="flex justify-center gap-10 m-auto  ">
-                        <Link href={"/[category]"} as="/Candles">
+                        <Link href={"/category/[category]"} as="/category/Candles">
                             <ItemLink itemName={"Candles"} subCategories={["Dessert Candles", "Jarred Candles", "Sculptural Candles"]} />
                         </Link>
 
-                        <Link href={"/[category]"} as="/Wax_Melts">
+                        <Link href={"/category/[category]"} as="/category/Wax_Melts">
                             <ItemLink itemName={"Wax Melts"} />
                         </Link>
 
-                        <Link href={"/[category]"} as="/Containers">
+                        <Link href={"/category/[category]"} as="/category/Containers">
                             <ItemLink itemName={"Containers"} />
                         </Link>
 

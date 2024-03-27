@@ -32,10 +32,9 @@ export async function GET(request:Request){
             }
         }),
         mode: 'payment',
-        success_url: "http://localhost:3000", //switch to environment variable
+        success_url: "http://localhost:3000/OrderSuccess}", //switch to environment variable
         cancel_url: "http://localhost:3000/Cart" 
     })
-
-    return Response.json({url: session.url})
+    return Response.json({url:session.url})
     
 }

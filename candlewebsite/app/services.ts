@@ -6,7 +6,6 @@ import { CartItemI } from "./Interfaces";
 
 export async function checkoutUser(cart: CartItemI[]) {
     try {
-        console.log(cart);
         const response = await axios.get("/api/checkout",{
             params:{
                 cart:JSON.stringify(cart),
