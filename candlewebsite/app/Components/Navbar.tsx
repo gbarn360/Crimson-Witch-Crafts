@@ -34,7 +34,7 @@ export default function Navbar() {
                         </Link>
                     </div>
                     <div className="flex gap-5 absolute right-0">
-                        <Link href={"/Cart"} className="">
+                        <Link href={"/Cart"} className="relative">
                             <FontAwesomeIcon icon={faCartShopping} className=" text-customRed text-xl" />
                         </Link>
                         <Link href={"#"}>

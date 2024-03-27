@@ -25,7 +25,7 @@ export default function ItemThumbnail({ item }: { item: Item }) {
 
     return (
         <div className=' hover:cursor-pointer rounded-3xl relative'>
-            {displayMessage ? <h1 className="fixed top-0 left-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
+            {displayMessage ? <h1 className="fixed z-10 top-0 left-0 transition-transform bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
             <img src={item.image[0]} alt={item.name} className="m-auto rounded-sm shadow-md" />
             <div className="mt-5 text-md md:text-lg">
                 <h1 className="text-gray-900 text-sm xl:text-lg">{item.name}</h1>

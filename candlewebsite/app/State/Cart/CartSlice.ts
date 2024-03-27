@@ -3,25 +3,40 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CartState } from "@/app/Interfaces";
 
 
-function loadCartState() : CartState{
+function loadCartState(): CartState {
+    let initialState: CartState;
 
-   
-    const storedState = localStorage.getItem("cartState");
-    if(storedState){
-        return JSON.parse(storedState);
-    }
-    else{
-        return{
-            cartItems : []
+    if (typeof window !== 'undefined' && window.localStorage) {
+        const storedState = localStorage.getItem("cartState");
+        if (storedState) {
+            const { cart, expires } = JSON.parse(storedState);
+            const expirationDate = new Date(expires);
+            if (expirationDate.getTime() > Date.now()) {
+                initialState = cart;
+            } else {
+                initialState = { cartItems: [] };
+                localStorage.removeItem("cartState");
+            }
+        } else {
+            initialState = { cartItems: [] };
         }
+    } else {
+        initialState = { cartItems: [] };
+    }
+
+    return initialState;
+}
+
+
+function saveCartState(state: CartState): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 2); // Set expiration 2 days from now
+        localStorage.setItem("cartState", JSON.stringify({ cart: state, expires: expirationDate.getTime() }));
     }
 }
 
-function saveCartState(state:CartState) : void{
 
-    localStorage.setItem("cartState", JSON.stringify(state));
-
-}
 
 const initialState : CartState = loadCartState();
 

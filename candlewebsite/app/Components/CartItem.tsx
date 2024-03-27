@@ -27,7 +27,7 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
     }
 
     return(
-        <div className=" m-auto sm:flex my-2 border-y-2  lg:p-4">
+        <div className=" m-auto sm:flex my-2 border-y-2 w-3/4 sm:w-full p-4">
             <Link key={index} href={"/products/[itemPage][id]"} as={`/products/${item.name.replace(/\s/g, "_")}/${item.id}`} className='w-1/4 xl:w-1/5'>
                 <img src={item.image[0]} className=""/>
             </Link>
