@@ -36,10 +36,14 @@ export default function page({ params }: { params: { category: string } }) {
 
     return (
         <Provider store={store}>
-            <Navbar />
-            <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
-            {items.length > 0 ? <ContentContainer items={items}/> : <Loading />}
-            <Footer />
+            <div className="flex flex-col justify-between ">
+                <Navbar />
+                <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
+                {items.length > 0 ? <ContentContainer items={items}/> : <Loading />}
+                <Footer />
+            </div>
+                
+            
         </Provider>
     )
 }

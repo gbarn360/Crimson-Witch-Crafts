@@ -3,7 +3,7 @@ import Footer from "../Components/Footer"
 export default function about(){
 
     return(
-        <div>
+        <div className="">
             <Navbar />
             about
             <Footer />
