@@ -16,7 +16,6 @@ export async function checkoutUser(cart: CartItemI[]) {
         console.error("Error checking out:", error);
     }
 }
-
 export async function getAllItems() {
     try {
         const response = await axios.get("/api/getItems"); 
@@ -40,4 +39,13 @@ export async function getIndividualItem(id: number) {
         return [];
     }
 }
+
+export async function signInAdmin(name: string, password: string) {
+    return new Promise<string>((resolve) => {
+        setTimeout(() => {
+            resolve("the result");
+        }, 2000);
+    });
+}
+
 

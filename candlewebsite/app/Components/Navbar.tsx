@@ -37,9 +37,9 @@ export default function Navbar() {
                         <Link href={"/Cart"} className="relative">
                             <FontAwesomeIcon icon={faCartShopping} className=" text-customRed text-xl" />
                         </Link>
-                        <Link href={"#"}>
+                        {/* <Link href={"#"}>
                             <FontAwesomeIcon icon={faUser} className=" text-xl " />
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
 
