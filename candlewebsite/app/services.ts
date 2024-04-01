@@ -1,5 +1,6 @@
 import axios from "axios";
 import { CartItemI } from "./Interfaces";
+import { AdminLogin } from "./Interfaces";
 
 // Assuming you have dotenv and Stripe setup correctly
 // Make sure to import Stripe from the correct package location
@@ -41,9 +42,10 @@ export async function getIndividualItem(id: number) {
 }
 
 export async function signInAdmin(name: string, password: string) {
-    return new Promise<string>((resolve) => {
+    let response = {login:true}
+    return new Promise<AdminLogin>((resolve) => {
         setTimeout(() => {
-            resolve("the result");
+            resolve(response);
         }, 2000);
     });
 }

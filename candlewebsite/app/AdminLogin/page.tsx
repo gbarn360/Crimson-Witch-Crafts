@@ -6,10 +6,9 @@ import Loading from "../Components/Loading";
 export default function AdminLogin(){
 
     const[userID,setUserID] = useState("");
-    const [userIDError,setUserIDError] = useState("");
+    const [error,setError] = useState("");
 
     const[password,setPassword] = useState("");
-    const [passwordError,setPasswordError] = useState("");
 
     const [waiting,setWaiting] = useState(false);
 
@@ -19,8 +18,14 @@ export default function AdminLogin(){
             let response = await signInAdmin(userID,password)
             setWaiting(false);
             //check response and update error message if required or redirect admin to dashboard
+            
+            response.errorMessage ? setError(response.errorMessage) : window.location.href = "/AdminDashboard"
+
             setUserID("");
             setPassword("");
+        }
+        else{
+            setError("input field(s) empty");
         }
     }
 
@@ -32,6 +37,7 @@ export default function AdminLogin(){
                     <input type="text" className="border-2 w-2/3" placeholder="UserName" onChange={(e)=>setUserID(e.target.value)}/>
                     <input type="password" className="border-2 w-2/3" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="border-2 px-2 py-1">Submit</button>
+                    <h1 className="text-customRed">{error}</h1>
                 </form>
             </div>
             }

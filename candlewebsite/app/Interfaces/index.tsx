@@ -7,7 +7,7 @@ export default interface Item {
     image: string[],
     materials: string[],
     description: string,
-    colorOptions: string[]
+    colorOptions?: string[]
 }
 
 export interface CartItemI{
@@ -30,4 +30,8 @@ export interface CartState{
     cartItems : CartItemI[];
 }
 
+export interface AdminLogin{
+    login : boolean,
+    errorMessage ?: string
+}
 
