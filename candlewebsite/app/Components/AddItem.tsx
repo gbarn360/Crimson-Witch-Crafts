@@ -14,8 +14,8 @@ export default function AddItem(){
     const[color,setColor] = useState("")
     const[colorOptions,setColorOptions] = useState<string[]>([])
 
-    function addItemtoCatalog(e: React.MouseEvent){
-        e.preventDefault();
+    function addItemtoCatalog(){
+        //check if all item fields are used 
     }
     function updateListing(type: string, e: React.KeyboardEvent<HTMLInputElement>) {
         if (e.key === 'Enter') {
@@ -49,7 +49,7 @@ export default function AddItem(){
         }
       };
     return(
-        <form onSubmit={(e)=>addItemtoCatalog} className="flex flex-col w-1/3 ">
+        <div  className="flex flex-col w-1/3 ">
                     <label>Product Name</label>
                     <input type="text" className="border-2 " onChange={(e)=>setName(e.target.value)}/>
 
@@ -87,9 +87,9 @@ export default function AddItem(){
                     </div>
                     
 
-                    <div className="mt-4  m-auto">
-                        <AdminBtn text="Add Item"/>
+                    <div className="mt-4  m-auto" onClick={()=>{addItemtoCatalog()}}>
+                        <AdminBtn text="Add Item" />
                     </div>
-                </form>
+                </div>
     )
 }
