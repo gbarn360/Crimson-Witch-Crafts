@@ -2,8 +2,7 @@ import axios from "axios";
 import { CartItemI } from "./Interfaces";
 import { AdminLogin } from "./Interfaces";
 
-// Assuming you have dotenv and Stripe setup correctly
-// Make sure to import Stripe from the correct package location
+
 
 export async function checkoutUser(cart: CartItemI[]) {
     try {
@@ -48,6 +47,15 @@ export async function signInAdmin(name: string, password: string) {
             resolve(response);
         }, 2000);
     });
+}
+
+export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
+
+    const response = await axios.get("/api/addItem",{
+        params:{
+            item:JSON.stringify(item)
+        }
+    }); 
 }
 
 

@@ -39,7 +39,7 @@ export default function page({ params }: { params: { category: string } }) {
             <div className="flex flex-col justify-between ">
                 <Navbar />
                 <h1 className="text-center text-4xl mt-10 -mb-10">{category}</h1>
-                {items.length > 0 ? <ContentContainer items={items}/> : <Loading />}
+                {items.length > 0 ? <ContentContainer items={items}/> : <div className="h-screen"><Loading /> </div>}
                 <Footer />
             </div>
                 

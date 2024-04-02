@@ -28,7 +28,7 @@ export default function page() {
     return (
         <Provider store={store}>
             <Navbar />
-            {items.length > 0 ? <ContentContainer items={items}/> : <Loading />}
+            {items.length > 0 ? <ContentContainer items={items}/> : <div className="h-screen"><Loading /> </div>}
             <Footer />
         </Provider>
     )
