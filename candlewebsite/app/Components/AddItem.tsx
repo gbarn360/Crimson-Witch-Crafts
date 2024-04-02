@@ -18,7 +18,6 @@ export default function AddItem(){
     function addItemtoCatalog(){
         
         if(name && category && price && images && materials && description){
-                console.log("in if")
             const item = {
                 name:name,
                 category:category,
@@ -28,6 +27,7 @@ export default function AddItem(){
                 description:description,
                 colorOptions:colorOptions
             }
+         
             addItem(item);
 
             setError("");
@@ -59,13 +59,16 @@ export default function AddItem(){
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
         if (e.target.files && e.target.files.length > 0) {
           const file = e.target.files[0];
-          const reader = new FileReader();
-          reader.onload = () => {
-            if (reader.result) {
-              setImages(prevImages => [...prevImages, reader.result as string]);
-            }
-          };
-          reader.readAsDataURL(file);
+
+         
+                const reader = new FileReader();
+                reader.onload = () => {
+                    if (reader.result) {
+                        setImages(prevImages => [...prevImages, reader.result as string]);
+                    }
+                };
+                reader.readAsDataURL(file);
+           
         }
       };
 

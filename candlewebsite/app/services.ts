@@ -51,11 +51,9 @@ export async function signInAdmin(name: string, password: string) {
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
 
-    const response = await axios.get("/api/addItem",{
-        params:{
-            item:JSON.stringify(item)
-        }
-    }); 
+
+    const response = await axios.post("/api/addItem",item);
+    
 }
 
 
