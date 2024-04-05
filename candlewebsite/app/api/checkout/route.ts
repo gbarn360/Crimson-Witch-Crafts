@@ -8,18 +8,15 @@ const stripe = new Stripe(key,{
 })
 
 
-export async function GET(request:Request){
+export async function POST(request:Request){
     
-    const{searchParams} = new URL(request.url);
-
-    const cart = searchParams.get('cart');
-   
-    const parsedCart = cart ? JSON.parse(Array.isArray(cart) ? cart[0] : cart) : null;
+    const data = await request.json();
+    //const parsedData = data ? JSON.parse(Array.isArray(data) ? data[0] : data) : null;
 
 
    const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
-        line_items: parsedCart.map((item: { name: any; itemPrice: number; quantity: any; })=>{
+        line_items: data.map((item: { name: any; itemPrice: number; quantity: any; })=>{
             return{
                 price_data:{
                     currency:'usd',

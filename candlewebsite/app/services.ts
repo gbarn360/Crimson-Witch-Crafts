@@ -6,11 +6,7 @@ import { AdminLogin } from "./Interfaces";
 
 export async function checkoutUser(cart: CartItemI[]) {
     try {
-        const response = await axios.get("/api/checkout",{
-            params:{
-                cart:JSON.stringify(cart),
-            }
-        }); 
+        const response = await axios.post("/api/checkout",cart); 
         window.location = response.data.url;
     } catch (error) {
         console.error("Error checking out:", error);
