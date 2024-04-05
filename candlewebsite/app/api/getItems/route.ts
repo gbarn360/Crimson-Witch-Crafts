@@ -1,7 +1,21 @@
-import axios from "axios";
+import { getFirestore, collection, getDocs} from 'firebase/firestore';
+import { app } from "../Firebase/setup";
+import Item from "../../Interfaces/index";
 
-export async function GET(request:Request){
-    let response = await axios.get("http://localhost:4000/items");
 
-    return Response.json(response.data);
+
+const db = getFirestore(app);
+
+export async function GET(request: Request) {
+    const querySnapshot = await getDocs(collection(db, "items"));
+
+    const items: Item[] = [];
+    querySnapshot.forEach((doc) => {
+        
+       let itemData = doc.data() as Item;
+       itemData.id = doc.id;
+        items.push(itemData);
+    });
+
+    return Response.json(items);
 }

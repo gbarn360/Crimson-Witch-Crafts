@@ -1,26 +1,25 @@
-var fs = require('fs');
-import axios from "axios";
+import { getFirestore, collection,doc,setDoc, getDocs} from 'firebase/firestore';
+import { app } from "../Firebase/setup";
+
+
+const db = getFirestore(app);
+
 export async function POST(request:Request){
 
         const data = await request.json();
-        data.id = 11;
+        
+        const docRef = doc(collection(db, 'items'));
 
-        fs.readFile('db.json','utf8',function callback(err:string,jsonData:string){
-            if(err){
-                console.log(err);
-            }
-            else{
-                let obj = JSON.parse(jsonData);
-                console.log(obj);
-                obj.items.push(data);
-                let json = JSON.stringify(obj);
-
-                fs.writeFile('db.json',json,'utf8',function callback(err:string){
-                })
-
-            }
-
-        })
+        await setDoc(docRef, {
+            name: data.name,
+            category: data.category,
+            image: data.image,
+            price:data.price,
+            description: data.description,
+            materials: data.materials,
+            colorOptions: data.colorOptions || [] 
+        });
+        
         return Response.json("success");
 
         

@@ -1,11 +1,21 @@
-import axios from "axios";
+import { getFirestore, collection, getDocs,getDoc, doc} from 'firebase/firestore';
+import { app } from "../Firebase/setup";
+import Item from "../../Interfaces/index";
 
-export async function GET(request:Request){
-    
+const db = getFirestore(app);
+
+export async function GET(request: Request) {
+
     const{searchParams} = new URL(request.url);
     const id = searchParams.get('id');
-    
-    let response = await axios.get(`http://localhost:4000/items/${id}`);
 
-    return Response.json(response.data);
+    const itemDocRef = doc(db,`items/${id}`)
+    const itemDocSnapshot = await getDoc(itemDocRef);
+
+    if (itemDocSnapshot.exists()) {
+        const itemData = itemDocSnapshot.data() as Item;
+        return Response.json(itemData);
+    } else {
+        return Response.json({ status:404,error: 'Item not found.' });
+    }
 }
