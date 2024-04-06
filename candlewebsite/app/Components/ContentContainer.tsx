@@ -5,7 +5,7 @@ import Item from '@/app/Interfaces';
 export default function ContentContainer({items}:{items:Item[]}) {
 
     return (
-        <div className="my-10 mx-auto pt-5 md:w-5/6 ">
+        <div className="mt-10 mx-auto pt-5 md:w-5/6 min-h-screen">
                 
                 <div className='flex flex-wrap'>
                     {items.map((item: Item, index: number) => (

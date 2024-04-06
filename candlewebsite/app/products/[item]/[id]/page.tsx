@@ -11,6 +11,8 @@ import { Provider } from "react-redux"
 import { store } from "@/app/State/state"
 
 export default function page({ params }: { params: { item: string, id: number } }) {
+
+    const [item, setItem] = useState<Item>();
     
     async function fetchData(){
         let item = await getIndividualItem(params.id);
@@ -21,14 +23,12 @@ export default function page({ params }: { params: { item: string, id: number } 
      }, []);
    
 
-    const [item, setItem] = useState<Item>();
 
     return (
         <Provider store={store}>
             <Navbar />
             {item ?
-
-                <ItemContent item={item} /> :
+                <ItemContent item={item} id={String(params.id)} /> :
                 <Loading />
             }
             <Footer />

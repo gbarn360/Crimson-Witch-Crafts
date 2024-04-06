@@ -4,7 +4,6 @@ import { RootState } from "@/app/State/state";
 import { useSelector } from "react-redux";
 import { checkoutUser } from "../services";
 import CartItem from "./CartItem";
-import Footer from "./Footer";
 export default function CartContent() {
     const cart = useSelector((state : RootState)=> state.cart.cartItems)
 
@@ -16,7 +15,7 @@ export default function CartContent() {
     }
 
     return (
-        <div className="flex flex-col h-screen justify-between ">
+        <div className="flex flex-col min-h-screen justify-between ">
            <div>
                 {cart.length !== 0 ?
                     <div className="sm:w-4/5 h-2/3 m-auto md:m-auto mt-10 flex flex-col items-center">
@@ -34,7 +33,6 @@ export default function CartContent() {
                     </div>
                 }
            </div>
-            <Footer />
         </div>
     )
 }

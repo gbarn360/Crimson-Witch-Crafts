@@ -3,13 +3,13 @@ import Item from "@/app/Interfaces"
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem } from "@/app/State/Cart/CartSlice";
 import Quantity from "./Quantity";
 
 
 
-export default function ItemContent({ item }: { item: Item }) {
+export default function ItemContent({ item,id }: { item: Item,id:string }) {
 
     const dispatch = useDispatch();
     const [image, setImage] = useState(item.image[0]);
@@ -18,12 +18,13 @@ export default function ItemContent({ item }: { item: Item }) {
     const [displayMessage, setDisplayMessage] = useState(false);
 
     function addItemToCart() {
-        dispatch(addItem({ id: item.id, name: item.name, image: item.image,itemPrice:item.price, totalPrice: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
+        dispatch(addItem({ id: id, name: item.name, image: item.image,itemPrice:item.price, totalPrice: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
 
         setDisplayMessage(true);
         setTimeout(() => { setDisplayMessage(false) }, 3000);
 
     }
+
 
 
 
