@@ -28,7 +28,7 @@ export default function CartContent() {
                             <h2 className="absolute right-0 top-0 text-lg">Total: <span className="font-bold">${getTotalPrice()}</span></h2>
                         </div>
                     </div> :
-                    <div className="mt-10">
+                    <div className="mt-40">
                         <h1 className="text-center text-3xl">Your cart is empty!</h1>
                     </div>
                 }
