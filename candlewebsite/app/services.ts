@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CartItemI } from "./Interfaces";
+import Item, { CartItemI } from "./Interfaces";
 import { AdminLogin } from "./Interfaces";
 
 
@@ -46,10 +46,14 @@ export async function signInAdmin(name: string, password: string) {
 }
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
-
-
     const response = await axios.post("/api/addItem",item);
     
 }
+
+export async function deleteItem(deletedItems : Item[]){
+    let ids = deletedItems.map(item => {return item.id});
+    await axios.post("/api/deleteItem",ids);
+}
+
 
 
