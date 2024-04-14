@@ -126,7 +126,7 @@ export default function AddItem(){
                     
 
                     <div className="mt-4  m-auto" onClick={()=>{addItemtoCatalog()}}>
-                        <AdminBtn text="Add Item" />
+                        <button className="p-2 border-2 hover:bg-customRed hover:transition-colors hover:text-white hover:border-transparent">Add item</button>
                     </div>
                 </div>
     )
