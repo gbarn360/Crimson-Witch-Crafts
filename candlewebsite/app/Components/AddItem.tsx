@@ -103,7 +103,7 @@ export default function AddItem(){
 
                     <label>Images</label>
                     <input className="border-2" type="file" accept="image/*" onChange={(e)=>handleFileChange(e)}/>
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-wrap gap-2">
                         {images.map((image,index) =>(<div key={index}><img src={image} className=" h-32"/> <button onClick={()=>{removeItem(image,"image")}} className="text-customRed">remove</button></div>))}
                     </div>
                     

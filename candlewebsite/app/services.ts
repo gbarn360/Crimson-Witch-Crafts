@@ -55,5 +55,11 @@ export async function deleteItem(deletedItems : Item[]){
     await axios.post("/api/deleteItem",ids);
 }
 
-
+export  async function updateItem(id:string,item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
+    console.log(id,item)
+    const response = await axios.post("/api/updateItem",{
+        id:id,
+        item:item
+    });
+}
 
