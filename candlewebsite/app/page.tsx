@@ -7,7 +7,7 @@ import Item from '@/app/Interfaces';
 import { getAllItems } from '@/app/services';
 import ContentContainer from "./Components/ContentContainer";
 import Footer from "./Components/Footer";
-import Loading from "./Components/Loading";
+import LoadingItemThumbnails from "./Components/LoadingItemThumbnails";
 export default function page() {
 
 
@@ -28,7 +28,7 @@ export default function page() {
     return (
         <Provider store={store}>
                 <Navbar />
-                {items.length > 0 ? <ContentContainer items={items}/> : <Loading /> }
+                {items.length > 0 ? <ContentContainer items={items}/> : <LoadingItemThumbnails /> }
                 <Footer />            
         </Provider>
     )

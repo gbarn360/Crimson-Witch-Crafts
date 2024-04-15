@@ -45,7 +45,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
     }
 
     return (
-        <div className="my-10 mb-40 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9 ">
+        <div className="my-10 mb-96 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9  ">
 
             <div className="w-5/6 lg:w-1/2  m-auto">
                 <div className="md:w-3/4 xl:w-2/3 m-auto">
@@ -62,7 +62,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
                 <div>
                     <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl 2xl:text-4xl ">{item.name}</h1>
                     <p className="w-5/6 lg:w-4/5 mt-5  xl:text-lg m-auto lg:m-0 lg:mt-5">{item.description}</p>
-                    <div className="mt-2"><span className="font-bold text-md">Materials: </span>{item.materials.map((material, index) => <h2 key={index}>{material}</h2>)}</div>
+                    <div className="mt-2"><span className="font-bold text-md">Materials: </span><div className="flex flex-wrap m-auto lg:m-0 w-2/3 xl:w-1/2 ">{item.materials.map((material, index) => <h2 className="w-1/2 " key={index}>{material}</h2>)}</div></div>
                     {item.colorOptions ? <div className="mt-1">
                         <span className="font-bold text-md">Color: </span>
                         <select className="bg-transparent border-none" onChange={(e) => setColor(e.target.value)}>

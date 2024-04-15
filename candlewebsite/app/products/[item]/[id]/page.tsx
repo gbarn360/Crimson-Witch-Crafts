@@ -5,7 +5,7 @@ import Footer from "@/app/Components/Footer"
 import { useEffect, useState } from "react"
 import ItemContent from "@/app/Components/ItemContent"
 import Item from "@/app/Interfaces"
-import Loading from "@/app/Components/Loading"
+import LoadingItemThumbnails from "@/app/Components/Loading"
 import { getIndividualItem } from "@/app/services"
 import { Provider } from "react-redux"
 import { store } from "@/app/State/state"
@@ -29,7 +29,7 @@ export default function page({ params }: { params: { item: string, id: number } 
             <Navbar />
             {item ?
                 <ItemContent item={item} id={String(params.id)} /> :
-                <Loading />
+                <LoadingItemThumbnails />
             }
             <Footer />
         </Provider>
