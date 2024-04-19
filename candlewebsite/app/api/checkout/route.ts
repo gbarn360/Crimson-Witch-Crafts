@@ -11,11 +11,12 @@ const stripe = new Stripe(key,{
 export async function POST(request:Request){
     
     const data = await request.json();
-    //const parsedData = data ? JSON.parse(Array.isArray(data) ? data[0] : data) : null;
 
 
    const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
+        tax_id_collection : {'enabled' : true},
+        billing_address_collection: 'required',
         line_items: data.map((item: { name: any; itemPrice: number; quantity: any; })=>{
             return{
                 price_data:{

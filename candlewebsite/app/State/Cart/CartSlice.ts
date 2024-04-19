@@ -90,10 +90,15 @@ const cartSlice = createSlice({
                  state.cartItems[index].color = color;
                  saveCartState(state);
 
+        },
+        
+        clearCart : (state) =>{
+            state.cartItems = [];
+            saveCartState(state);
         }
     }
 })
 
-export const {addItem,removeItem,updateItemPrice,updateItemColor} = cartSlice.actions;
+export const {addItem,removeItem,updateItemPrice,updateItemColor,clearCart} = cartSlice.actions;
 
 export default cartSlice.reducer;

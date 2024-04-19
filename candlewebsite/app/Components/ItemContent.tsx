@@ -76,7 +76,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
                 </div>
                 <div className=" w-full">
                     <h1 className="font-bold text-2xl mt-5">${item.price.toFixed(2)}</h1>
-                    <button onClick={() => addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
+                    <button onClick={() => addItemToCart()} className="bg-gray-900 text-gray-50 w-1/2 p-2 mt-5 rounded-sm text-md hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
                 </div>
 
 
