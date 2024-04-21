@@ -37,12 +37,15 @@ export async function getIndividualItem(id: number) {
 }
 
 export async function signInAdmin(name: string, password: string) {
-    let response = {login:true}
-    return new Promise<AdminLogin>((resolve) => {
-        setTimeout(() => {
-            resolve(response);
-        }, 2000);
+
+    let response = await axios.get("/api/SignInAdmin",{
+        params:{
+            name:name,
+            password:password
+        }
     });
+    
+    return response.data;
 }
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
