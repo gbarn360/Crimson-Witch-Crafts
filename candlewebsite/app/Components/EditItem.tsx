@@ -2,6 +2,8 @@
 import { useState,useEffect } from "react";
 import { getAllItems,updateItem } from "../services";
 import Item from "../Interfaces";
+import Compressor from 'compressorjs';
+
 export default function EditItem(){
 
     const[items,setItems] = useState<Item[]>([]);
@@ -41,21 +43,31 @@ export default function EditItem(){
         item.colorOptions ? setColorOptions(item.colorOptions) : null;
     }
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
-          const file = e.target.files[0];
-
-         
-                const reader = new FileReader();
-                reader.onload = () => {
-                    if (reader.result) {
-                        setImages(prevImages => [...prevImages, reader.result as string]);
-                    }
-                };
-                reader.readAsDataURL(file);
-           
+            const file = e.target.files[0];
+    
+            new Compressor(file, {
+                quality: 0.7, 
+                width: 1000,
+                height: 1000,
+                success(compressedFile) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = () => {
+                        if (reader.result) {
+                            setImages((prevImages) => [...prevImages, reader.result as string]);
+                        }
+                    };
+                    
+                    reader.readAsDataURL(compressedFile); // Read the compressed file
+                },
+                error(err) {
+                    console.error('Compression error:', err);
+                },
+            });
         }
-      };
+    };
 
       const removeItem = (item:string,type:string) => {
         if(type === "image"){

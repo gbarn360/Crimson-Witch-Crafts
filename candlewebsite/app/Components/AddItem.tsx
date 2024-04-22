@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react"
 import { addItem } from "../services"
+import Compressor from 'compressorjs';
+
 export default function AddItem(){
 
     const[name,setName] = useState("")
@@ -13,11 +15,14 @@ export default function AddItem(){
     const[color,setColor] = useState("")
     const[colorOptions,setColorOptions] = useState<string[]>([])
     const [error,setError] = useState("")
+    const [message,setMessage] = useState("");
+    const [addingItem,setAddingItem] = useState(false);
 
-    function addItemtoCatalog(){
+
+    async function addItemtoCatalog(){
         
         if(name && category && price && images && materials && description){
-
+            setAddingItem(true);
             let item;
             if(colorOptions){
                 item = {
@@ -42,8 +47,11 @@ export default function AddItem(){
             }
             
         
-         
-            addItem(item);
+            
+            await addItem(item);
+            setMessage("item has been added to catalog")
+            setAddingItem(false);
+
 
             setError("");
         }
@@ -71,21 +79,31 @@ export default function AddItem(){
         }
     }
     
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
-          const file = e.target.files[0];
-
-         
-                const reader = new FileReader();
-                reader.onload = () => {
-                    if (reader.result) {
-                        setImages(prevImages => [...prevImages, reader.result as string]);
-                    }
-                };
-                reader.readAsDataURL(file);
-           
+            const file = e.target.files[0];
+    
+            new Compressor(file, {
+                quality: 0.7, 
+                width: 1000,
+                height: 1000,
+                success(compressedFile) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = () => {
+                        if (reader.result) {
+                            setImages((prevImages) => [...prevImages, reader.result as string]);
+                        }
+                    };
+                    
+                    reader.readAsDataURL(compressedFile); // Read the compressed file
+                },
+                error(err) {
+                    console.error('Compression error:', err);
+                },
+            });
         }
-      };
+    };
 
       const removeItem = (item:string,type:string) => {
         if(type === "image"){
@@ -140,9 +158,10 @@ export default function AddItem(){
 
                     
 
-                    <div className="mt-4  m-auto" onClick={()=>{addItemtoCatalog()}}>
-                        <button className="p-2 border-2 hover:bg-customRed hover:transition-colors hover:text-white hover:border-transparent">Add item</button>
+                    <div className="mt-4  m-auto  mb-10" onClick={()=>{addItemtoCatalog()}}>
+                        <button disabled={addingItem} className="p-2 border-2 hover:bg-customRed hover:transition-colors hover:text-white hover:border-transparent">Add item</button>
                     </div>
+                    <h1 className="text-center mt-5 mb-5">{message}</h1>
                 </div>
     )
 }
