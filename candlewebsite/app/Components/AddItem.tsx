@@ -1,5 +1,4 @@
 'use client'
-import AdminBtn from "../Components/AdminBtn"
 import { useState } from "react"
 import { addItem } from "../services"
 export default function AddItem(){
@@ -18,15 +17,31 @@ export default function AddItem(){
     function addItemtoCatalog(){
         
         if(name && category && price && images && materials && description){
-            const item = {
-                name:name,
-                category:category,
-                price:price,
-                image:images,
-                materials:materials,
-                description:description,
-                colorOptions:colorOptions
+
+            let item;
+            if(colorOptions){
+                item = {
+                    name:name,
+                    category:category,
+                    price:price,
+                    image:images,
+                    materials:materials,
+                    description:description,
+                    colorOptions:colorOptions
+                }
             }
+            else{
+                item = {
+                    name:name,
+                    category:category,
+                    price:price,
+                    image:images,
+                    materials:materials,
+                    description:description,
+                }
+            }
+            
+        
          
             addItem(item);
 

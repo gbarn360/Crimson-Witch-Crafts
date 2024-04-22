@@ -30,7 +30,7 @@ export default function ItemThumbnail({ item }: { item: Item }) {
             <div className="mt-5 text-md md:text-lg">
                 <h1 className="text-gray-900 text-sm xl:text-lg">{item.name}</h1>
                 <h2 className="mb-2 text-gray-900">${item.price.toFixed(2)}</h2>
-                <button onClick={(e) => addItemToCart(e)} className="bg-gray-900 text-gray-50 w-full p-2 rounded-sm hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
+                <button onClick={(e) => addItemToCart(e)} className="bg-gray-900 text-gray-200 w-full p-2 rounded-sm hover:transition-colors hover:bg-customRed">ADD TO BAG</button>
             </div>
         </div>
     );
