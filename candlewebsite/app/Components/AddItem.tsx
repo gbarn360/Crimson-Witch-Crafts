@@ -7,7 +7,7 @@ export default function AddItem(){
 
     const[name,setName] = useState("")
     const[category,setCategory] = useState("Dessert Candles")
-    const[price,setPrice] = useState(0)
+    const[price,setPrice] = useState<number >()
     const[images,setImages] = useState<string[]>([])
     const[material,setMaterial] = useState("")
     const[materials,setmaterials] = useState<string[]>([])
@@ -19,10 +19,21 @@ export default function AddItem(){
     const [addingItem,setAddingItem] = useState(false);
 
 
+    function resetInputFields(){
+        setName("");
+        setCategory("");
+        setPrice(0);
+        setmaterials([]);
+        setDescription("");
+        setColorOptions([]);
+        setImages([]);
+
+    }
     async function addItemtoCatalog(){
-        
-        if(name && category && price && images && materials && description){
+
+        if(name && category && price && images && materials.length > 0 && description){
             setAddingItem(true);
+            setError("");
             let item;
             if(colorOptions){
                 item = {
@@ -47,9 +58,11 @@ export default function AddItem(){
             }
             
         
-            
+            setMessage("")
+
             await addItem(item);
             setMessage("item has been added to catalog")
+            resetInputFields();
             setAddingItem(false);
 
 
@@ -119,10 +132,10 @@ export default function AddItem(){
     return(
         <div  className="flex flex-col min-w-80 ">
                     <label>Product Name</label>
-                    <input type="text" className="border-2 " onChange={(e)=>setName(e.target.value)}/>
+                    <input type="text" className="border-2 " value={name} onChange={(e)=>setName(e.target.value)}/>
 
                     <label>Category</label>
-                    <select className="border-2 "  onChange={(e)=>setCategory(e.target.value)}>
+                    <select className="border-2 " value={category}  onChange={(e)=>setCategory(e.target.value)}>
                         <option  value="Dessert Candles">Dessert Candles</option>
                         <option value="Jarred Candles">Jarred Candles</option>
                         <option value="Sculptural Candles">Sculptural Candles</option>
@@ -132,7 +145,7 @@ export default function AddItem(){
                     
 
                     <label>Price</label>
-                    <input className="border-2" type="number" onChange={(e)=>setPrice(Number(e.target.value))}/>
+                    <input className="border-2" type="number" value={price} onChange={(e)=>setPrice(Number(e.target.value))}/>
 
                     <label>Images</label>
                     <input className="border-2" type="file" accept="image/*" onChange={(e)=>handleFileChange(e)}/>
@@ -147,7 +160,7 @@ export default function AddItem(){
                     </div>
 
                     <label>description</label>
-                    <textarea onChange={(e)=>setDescription(e.target.value)} className="h-20 border-2"></textarea>
+                    <textarea value={description} onChange={(e)=>setDescription(e.target.value)} className="h-20 border-2"></textarea>
                    
                     <label>Color Options</label>
                     <input className="border-2" type="text" onKeyDown={(e)=>updateListing("color",e)}/>

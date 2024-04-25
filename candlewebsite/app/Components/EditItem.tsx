@@ -111,6 +111,7 @@ export default function EditItem(){
         }
      
         if(item){
+            setMessage("");
             await updateItem(item.id,updatedItem);
         }
         setMessage("your catalog has been updated");
