@@ -39,15 +39,15 @@ export default function HamburgerMenu(){
                    </div>
                    <div className=' ml-5 '>
 
-                        <Link href={"/[category]"} as="/Candles">
+                        <Link href={"/category/[category]"} as="/category/Candles">
                             <HamburgerItemLink itemName={"Candles"} subCategories={["Dessert Candles", "Jarred Candles", "Sculptural Candles"]} />
                         </Link>
 
-                        <Link href={"/[category]"} as="/Wax_Melts">
+                        <Link href={"/category[category]"} as="/category/Wax_Melts">
                             <HamburgerItemLink itemName={"Wax Melts"} />
                         </Link>
 
-                        <Link href={"/[category]"} as="/Containers">
+                        <Link href={"/category/[category]"} as="/category/Containers">
                             <HamburgerItemLink itemName={"Containers"} />
                         </Link>
 
