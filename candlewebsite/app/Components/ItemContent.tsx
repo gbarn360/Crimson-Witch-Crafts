@@ -50,7 +50,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
             <div className="w-5/6 lg:w-1/2  m-auto">
                 <div className="md:w-3/4 xl:w-2/3 m-auto">
                     <img loading="lazy" src={image} className="m-auto rounded-sm  shadow-md w-96 h-96 object-cover" />
-                    {displayMessage ? <h1 className="fixed top-0 left-0 bg-customRed w-full text-center p-2 text-white ">Item added to bag!</h1> : null}
+                    <h1 className={`fixed z-10 top-0 left-0 bg-customRed w-full text-center p-2 text-white transition-opacity duration-50 ease-in ${displayMessage ? "opacity-100" : "opacity-0"}`}>Item added to bag!</h1> 
                 </div>
 
                 <div className="flex justify-center gap-10 md:w-3/4 m-auto mt-2">
