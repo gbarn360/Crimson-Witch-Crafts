@@ -117,6 +117,7 @@ export default function EditItem(){
         setMessage("your catalog has been updated");
         setChangesMade(false);
         setCopy(item)
+        fetchData();
     }
   
    

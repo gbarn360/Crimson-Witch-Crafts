@@ -23,9 +23,9 @@ export default function CartContent() {
                             <h1 className="text-2xl">Cart</h1>
                             {cart.map((item, index) => (<CartItem key={index} index={index} item={item}/>))}
                         </div>
-                        <div className="relative  w-4/5 flex ">
-                            <button onClick={()=>checkoutUser(cart)} className="p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
-                            <h2 className="absolute right-0 top-0 text-lg">Total: <span className="font-bold">${getTotalPrice()}</span></h2>
+                        <div className="relative w-1/2 sm:w-full flex flex-col sm:flex-row ">
+                            <button onClick={()=>checkoutUser(cart)} className="mb-4 p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
+                            <h2 className="text-center sm:absolute right-0 top-0 text-lg">Total: <span className="font-bold">${getTotalPrice()}</span></h2>
                         </div>
                     </div> :
                     <div className="mt-40">

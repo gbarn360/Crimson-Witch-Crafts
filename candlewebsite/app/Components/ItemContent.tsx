@@ -45,7 +45,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
     }
 
     return (
-        <div className="my-10 mb-96 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex  gap-9  ">
+        <div className="my-10 mb-96 mx-auto pt-5 md:w-5/6 2xl:w-2/3 lg:flex gap-9  ">
 
             <div className="w-5/6 lg:w-1/2  m-auto">
                 <div className="md:w-3/4 xl:w-2/3 m-auto">
