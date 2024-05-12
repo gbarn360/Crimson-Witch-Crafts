@@ -1,6 +1,7 @@
 import axios from "axios";
 import Item, { CartItemI } from "./Interfaces";
-import { AdminLogin } from "./Interfaces";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { app } from "./api/Firebase/setup";
 
 
 
@@ -36,33 +37,38 @@ export async function getIndividualItem(id: number) {
     }
 }
 
-export async function signInAdmin(name: string, password: string) {
-
-    let response = await axios.get("/api/SignInAdmin",{
-        params:{
-            name:name,
-            password:password
-        }
-    });
-    
-    return response.data;
-}
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
-    const response = await axios.post("/api/addItem",item);
+    const token = sessionStorage.getItem("idToken");
+
+    const response = await axios.post("/api/addItem",item,{
+        headers:{
+           'Authorization': `Bearer ${token}`,
+        }
+    });
     
 }
 
 export async function deleteItem(deletedItems : Item[]){
+    const token = sessionStorage.getItem("idToken");
+
     let ids = deletedItems.map(item => {return item.id});
-    await axios.post("/api/deleteItem",ids);
+    await axios.post("/api/deleteItem",ids,{
+        headers:{
+           'Authorization': `Bearer ${token}`,
+        }
+    });
 }
 
 export  async function updateItem(id:string,item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
-    console.log(id,item)
+    const token = sessionStorage.getItem("idToken");
     const response = await axios.post("/api/updateItem",{
         id:id,
-        item:item
+        item:item,
+    },{
+        headers:{
+           'Authorization': `Bearer ${token}`,
+        }
     });
 }
 

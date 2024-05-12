@@ -138,7 +138,7 @@ export default function EditItem(){
                     <h1>description</h1>
                     <button className="text-gray-500" onClick={()=>setDescription(item.description)}>(reset)</button>
                 </div>
-                <textarea value={item.description} className="w-full border-2 p-2" onChange={(e)=>{setDescription(e.target.value);setChangesMade(true); }} />
+                <textarea value={description} className="w-full border-2 p-2" onChange={(e)=>{setDescription(e.target.value);setChangesMade(true); }} />
                 </>
                 <>
                     <div className="flex gap-2">

@@ -12,9 +12,11 @@ export default function AdminDashboard(){
     const [selectedButton,setSelectedButton] = useState("");
 
     useEffect(()=>{
-        if(!sessionStorage.getItem("session")){
-            window.location.href = "http://localhost:3000/AdminLogin"
-        } 
+        if(!sessionStorage.getItem("idToken")){
+            window.location.href="http://localhost:3000/AdminLogin";
+        }
+
+   ;
     },[])
     return(
 

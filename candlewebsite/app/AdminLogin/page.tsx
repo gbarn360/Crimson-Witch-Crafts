@@ -1,6 +1,8 @@
 'use client'
-import { signInAdmin } from "../services"
 import {useState,useEffect} from "react"
+import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import { app } from "../api/Firebase/setup";
+
 import Loading from "../Components/Loading";
 
 export default function AdminLogin(){
@@ -17,27 +19,42 @@ export default function AdminLogin(){
     }
 
     useEffect(()=>{
-        if(sessionStorage.getItem("session")){
-            window.location.href = "http://localhost:3000/AdminDashboard"
-        } 
+
+        if(sessionStorage.getItem("idToken")){
+            window.location.href="http://localhost:3000/AdminDashboard";
+        }
+
+       
     },[])
-    async function signIn(){
+
+
+    function signIn(){
         if(userID.length && password.length){
             setWaiting(true);
-            let response = await signInAdmin(userID,password)
-            setWaiting(false);
-            
-            if(response.login){
-                sessionStorage.setItem("session","loggedIn");
-                window.location.href = "/AdminDashboard"
-            }
-            else{
-                if(response.errorMessage)
-                    setError(response.errorMessage)
-            }
 
-            setUserID("");
-            setPassword("");
+
+            const auth = getAuth(app);
+
+            signInWithEmailAndPassword(auth, userID, password)
+            .then(async (userCredential: any) => {
+            // User is logged in
+            const user = userCredential.user;
+        
+            const token = await user.getIdToken();
+            sessionStorage.setItem("idToken",token);
+
+            console.log("User token:", token);
+            window.location.href = "/AdminDashboard"
+
+            })
+            .catch((error:any) => {
+            // Handle errors
+            setError(error.message)
+        
+            });
+          
+            setWaiting(false);
+        
         }
         else{
             setError("input field(s) empty");
