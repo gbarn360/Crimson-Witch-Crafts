@@ -18,6 +18,7 @@ export default function AddItem(){
     const [message,setMessage] = useState("");
     const [addingItem,setAddingItem] = useState(false);
 
+    const categories = ["Dessert Candles", "Jarred Candles", "Sculptural Candles","Wax Melts", "Containers"];
 
     function resetInputFields(){
         setName("");
@@ -136,11 +137,7 @@ export default function AddItem(){
 
                     <label>Category</label>
                     <select className="border-2 " value={category}  onChange={(e)=>setCategory(e.target.value)}>
-                        <option  value="Dessert Candles">Dessert Candles</option>
-                        <option value="Jarred Candles">Jarred Candles</option>
-                        <option value="Sculptural Candles">Sculptural Candles</option>
-                        <option value="Wax Melts">Wax Melts</option>
-                        <option value="Containers">Containers</option>
+                        {categories.map(category => (<option value={category}>{category}</option>))}
                     </select>
                     
 

@@ -36,7 +36,7 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
                     <h1 className="2xl:text-xl">{item.name}</h1>
                     <div className="">
                         <h2 className="font-bold 2xl:text-xl">${item.totalPrice.toFixed(2)}</h2>
-                        <h2 className="text-slate-400 text-xs ">${item.itemPrice.toFixed(2)} each</h2>
+                        {quantity > 1 ? <h2 className="text-slate-400 text-xs ">${item.itemPrice.toFixed(2)} each</h2> : null}
                     </div>
                 </div>
                 <div className="flex  my-2">

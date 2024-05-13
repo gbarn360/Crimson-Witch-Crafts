@@ -18,8 +18,8 @@ export default function Footer(){
                 </div>
                 <div className="sm:w-1/2 flex flex-col gap-y-2 ">
                     <h1 className='text-gray-400'>Contact Info</h1>
-                    <h2 className="font-bold text-gray-200">crimsonwitchcraft@email.com</h2>
-                    <h2 className="font-bold text-gray-200">(xxx)-xxx-xxxx</h2>
+                    <h2 className="font-bold text-gray-200">crimsonwitch00@gmail.com</h2>
+                    <h2 className="font-bold text-gray-200">(412)-691-5345</h2>
 
                 </div>
             </div>

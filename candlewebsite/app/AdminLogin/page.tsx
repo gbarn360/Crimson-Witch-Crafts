@@ -49,7 +49,7 @@ export default function AdminLogin(){
             })
             .catch((error:any) => {
             // Handle errors
-            setError(error.message)
+            setError("Invalid email or password")
         
             });
           
