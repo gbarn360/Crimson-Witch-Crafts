@@ -1,7 +1,5 @@
 import axios from "axios";
 import Item, { CartItemI } from "./Interfaces";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { app } from "./api/Firebase/setup";
 
 
 

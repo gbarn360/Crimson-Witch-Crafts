@@ -13,15 +13,10 @@ export default function AdminLogin(){
     const [error,setError] = useState("");
     const [waiting,setWaiting] = useState(false);
 
-    function resetCredentials(e : React.MouseEvent<HTMLButtonElement>){ 
-        e.preventDefault();
-        
-    }
-
     useEffect(()=>{
 
         if(sessionStorage.getItem("idToken")){
-            window.location.href="http://localhost:3000/AdminDashboard";
+            window.location.href=`${String(process.env.URL)}/AdminDashboard`;
         }
 
        
