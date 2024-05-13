@@ -9,7 +9,7 @@ import { store } from "../../State/state"
 import ContentContainer from "../../Components/ContentContainer"
 import LoadingItemThumbnails from "../../Components/LoadingItemThumbnails"
 
-export default function page({ params }: { params: { category: string } }) {
+export default function Category({ params }: { params: { category: string } }) {
 
     const [items, setItems] = useState<Item[]>([]);
     const [category, setCategory] = useState(params.category.replace(/_/g, " "))

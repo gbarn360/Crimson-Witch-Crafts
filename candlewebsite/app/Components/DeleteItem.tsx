@@ -41,7 +41,7 @@ export default function DeleteItem(){
 
     return(
         <div className=" w-4/5 ">
-            {items.map((item)=>(<div className="border-2 m-2 p-2 flex justify-between">{item.name} <button className="hover:text-customRed hover:tarnsition-colors"onClick={()=>{removeItem(item)}}>delete</button></div>))}
+            {items.map((item,index)=>(<div key={index} className="border-2 m-2 p-2 flex justify-between">{item.name} <button className="hover:text-customRed hover:tarnsition-colors"onClick={()=>{removeItem(item)}}>delete</button></div>))}
             <div className="flex justify-center gap-2">
             <button disabled={!changesMade} className={ !changesMade ? `text-gray-300 p-2 border-2` : 'p-2 border-2'} onClick={()=>{saveChanges()}}>save</button>
             <button disabled={!changesMade} className={ !changesMade ? `text-gray-300 p-2 border-2` : 'p-2 border-2'} onClick={()=>{resetChanges()}}>undo changes</button>

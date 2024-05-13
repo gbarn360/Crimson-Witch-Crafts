@@ -8,7 +8,7 @@ import { getAllItems } from '@/app/services';
 import ContentContainer from "./Components/ContentContainer";
 import Footer from "./Components/Footer";
 import LoadingItemThumbnails from "./Components/LoadingItemThumbnails";
-export default function page() {
+export default function Home() {
 
 
     const [items, setItems] = useState<Item[]>([]);

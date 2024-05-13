@@ -137,7 +137,7 @@ export default function AddItem(){
 
                     <label>Category</label>
                     <select className="border-2 " value={category}  onChange={(e)=>setCategory(e.target.value)}>
-                        {categories.map(category => (<option value={category}>{category}</option>))}
+                        {categories.map((category,index) => (<option key={index} value={category}>{category}</option>))}
                     </select>
                     
 

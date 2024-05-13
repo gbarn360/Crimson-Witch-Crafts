@@ -10,7 +10,7 @@ import { getIndividualItem } from "@/app/services"
 import { Provider } from "react-redux"
 import { store } from "@/app/State/state"
 
-export default function page({ params }: { params: { item: string, id: number } }) {
+export default function Products({ params }: { params: { item: string, id: number } }) {
 
     const [item, setItem] = useState<Item>();
     
