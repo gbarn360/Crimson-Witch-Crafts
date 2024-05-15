@@ -1,37 +1,47 @@
-'use client'
 
-import Navbar from "@/app/Components/Navbar"
-import Footer from "@/app/Components/Footer"
-import { useEffect, useState } from "react"
-import ItemContent from "@/app/Components/ItemContent"
 import Item from "@/app/Interfaces"
-import LoadingItemThumbnails from "@/app/Components/Loading"
-import { getIndividualItem } from "@/app/services"
-import { Provider } from "react-redux"
-import { store } from "@/app/State/state"
+import ItemContainer from "@/app/Components/ItemContainer";
+// import { getAllItems } from "@/app/services"
+import { getFirestore, collection, getDocs, doc, getDoc} from 'firebase/firestore';
+import {app} from "../../../api/Firebase/setup"
 
-export default function Products({ params }: { params: { item: string, id: number } }) {
 
-    const [item, setItem] = useState<Item>();
+const db = getFirestore(app);
+
+export async function generateStaticParams() {
+    const querySnapshot = await getDocs(collection(db, "items"));
+
+    const items: Item[] = [];
+    querySnapshot.forEach((doc) => {
+        
+       let itemData = doc.data() as Item;
+       itemData.id = doc.id;
+        items.push(itemData);
+    });
+
+   return items.map((item:Item)=> ({
+    item: item.name.replace(/\s/g, "_"),
+    id:item.id
+   }))
+}
+
+export default async function Products({ params }: { params: { item: string, id: string } }) {
+
     
     async function fetchData(){
-        let item = await getIndividualItem(params.id);
-        setItem(item);
+        'use server'
+          const itemDocRef = doc(db,`items/${params.id}`)
+    const itemDocSnapshot = await getDoc(itemDocRef);
+
+    if (itemDocSnapshot.exists()) {
+        const itemData = itemDocSnapshot.data() as Item;
+       return(<ItemContainer item={itemData}/>)
+    } else {
+        console.log("error");
     }
-     useEffect(() => {
-         fetchData();
-     }, []);
-   
-
-
+    }
+    
     return (
-        <Provider store={store}>
-            <Navbar />
-            {item ?
-                <ItemContent item={item} id={String(params.id)} /> :
-                <LoadingItemThumbnails />
-            }
-            <Footer />
-        </Provider>
+        <>{fetchData()}</>
     )
 }

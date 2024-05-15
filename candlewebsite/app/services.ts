@@ -21,19 +21,19 @@ export async function getAllItems() {
     }
 }
 
-export async function getIndividualItem(id: number) {
-    try {
-        const response = await axios.get("/api/getIndividualItem",{
-            params:{
-                id:id
-            }
-        }); 
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching item:", error);
-        return [];
-    }
-}
+// export async function getIndividualItem(id: string) {
+//     try {
+//         const response = await axios.get(`/api/getIndividualItem`,{
+//             headers:{
+//                "id":`${id}`
+//             }
+//         }); 
+//         return response.data;
+//     } catch (error) {
+//         console.error("Error fetching item:", error);
+//         return [];
+//     }
+// }
 
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
