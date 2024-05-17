@@ -27,9 +27,12 @@ export default function Home() {
 
     return (
         <Provider store={store}>
-                <Navbar />
+                {/* <Navbar />
                 {items.length > 0 ? <ContentContainer items={items}/> : <LoadingItemThumbnails /> }
-                <Footer />            
+                <Footer />             */}
+                <div>
+                    hello world
+                </div>
         </Provider>
     )
 }
