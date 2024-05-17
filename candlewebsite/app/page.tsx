@@ -30,9 +30,6 @@ export default function Home() {
                 <Navbar />
                 {items.length > 0 ? <ContentContainer items={items}/> : <LoadingItemThumbnails /> }
                 <Footer />            
-                <div>
-                    hello world
-                </div>
         </Provider>
     )
 }
