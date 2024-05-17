@@ -1,7 +1,6 @@
 
 import Item from "@/app/Interfaces"
 import ItemContainer from "@/app/Components/ItemContainer";
-// import { getAllItems } from "@/app/services"
 import { getFirestore, collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {app} from "../../../api/Firebase/setup"
 

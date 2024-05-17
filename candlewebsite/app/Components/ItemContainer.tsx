@@ -3,7 +3,6 @@
 import { Provider } from "react-redux";
 import { store } from "../State/state";
 import {useEffect,useState} from "react"
-import { getIndividualItem } from "../services";
 import Navbar from "./Navbar";
 import ItemContent from "./ItemContent";
 import LoadingItemThumbnails from "./LoadingItemThumbnails";
