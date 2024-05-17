@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "crimson-witch-crafts",
+    "private_key_id": "0b4eb81596395da4df2b56753561c20d7b13fc05",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4s40V8ZHr2XOX\nHjmPCtzUJZp6ZKmJGd3Y6VcFiwJ5KSHEUsmoITGUuQJ0UkLxSh0BAAD8ulMj2dxS\nEDjBwPZu90Ye7ViDK5fplVj2tTVJp0CCB55MgvvXGT7a1ngWSbtWPUH/24F7Coo3\nxxGvYNEOqN5yhD1eYYWwceMacFjht1z7NpS92CtVeEIxl8/FE7gK0EqhY5CjH+hv\nNcjuRibRzhG45RtY1CYFF9OINzS0xstNyt1rs1OvnZAGuPBsZZF7aISOSZQPodBr\nw8pao0ozNHikQtVB2pxXQojUPfg3fXKUmLokm/QaqsJnn3pnedtTEl4YVJWW8Aqv\n3kPsosnpAgMBAAECggEALMrSdNdkSXuvRh882z1Jp6NE7ti5qrecrw2LnpsDKwn4\nF+nx4LXIFea2Oyp19JlCJmtvUdsH7aJYhYhMk2Rt/yQ1m6t4szrfuPSQoif499c5\nVC9vyuNbGuOS9DRd5B3Wckgh2OBNat73/SXoWo1StcjrRX9feKOS7eL4rgE/9OD/\nEhevxhtni8tLjgpADX7krlot72IFhD/1pkt1QTAOTSiNtQfqghzkkVxftEL8y5pc\nzXuP45/PnrgxDT/42FtgIe7tR5EmF02/t1Hs3wpO6/ZXZp6F/Qyfr/hNQQbg3ZNd\nH5QMY2Q9kA/QVQQWu5lat6oFu4wJlXnReO1KddpLtwKBgQDZnG/BIk0qX+Or15JX\ns0Z21YcqdfY5nE7uhKNtRCSzFa0w9A4E9IKbggcLc/Wt2tJODjcaW5Gy0DDjTfdJ\n2hs/0+B4boXBeoO9K5GIQ1R6AXT9JiRqvuX93gz2tQnVoHVsYYbGVuT9xeh0G8PS\n3L9GpshSkhis1P7X4nBNjTrS0wKBgQDZSN/wnKjZExuFFl28LMhAJi/4OQW1L13Z\n/unT1pDC260/GXUbTdm9odbd9WZGQo+QHtVaRDgHlHTecAQRNkY4R9RYA2jKRZ1n\nA+WNcv7LEWBUy7NPNWniQEla2k2LxVPtHxo7ZJ8A5H5kOJInOpPzV8VUz6FXn5Iq\nrjOTV90i0wKBgEfltNK115L5jYpYNiS9ublHgVoZEVold7q8nhZa3llA/zDeYcdn\nVcO1aUhybqibVMKvVatit7fBq3VebCa9ZiVnhpGjypOLO/2DaJkBzeZlltaRBJU0\nL176P4Q/ellXo5REgLgFO7FQ8yVxivifMJ9SOXt2g6qO0QhY60vkLpw7AoGAb1v+\nCZ8AmmBElmzkFXEOIHJx21G+LyHbg8I1rLAm+PcFT3WIozm/AoVTTeZbSF8MnNxw\nlBaqcJgRXX8jVn7udiG6HnGA30nWZdmFaH0rQH/jUxIjD9FcNuyjq8B+RcgYP0rV\ncuMa6qYwcMTdguVutiShqdnP4syRaPZm0HkTiKkCgYA+o6bMbUsC96v3L03IFJ6D\nPH7oudG/z8uvMNBFlfzA32WC6z/WneIyrSv15qdFZHFqbifyAS7XaD48D/gYTeC+\niDsYsL9ExymCqaIhca7Ul+V8LvBJ/ORt8dHvMR1OlNdzFPfGsNvaOAHJp8oIzVSM\n3eGve+mmxAZ4g+xsdVa5aA==\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-vx5ie@crimson-witch-crafts.iam.gserviceaccount.com",
+    "client_id": "112187797629856930537",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-vx5ie%40crimson-witch-crafts.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  
