@@ -13,7 +13,7 @@ export default function AdminDashboard(){
 
     useEffect(()=>{
         if(!sessionStorage.getItem("idToken")){
-            window.location.href=`${String(process.env.URL)}/AdminLogin`;
+            window.location.href="/AdminLogin";
         }
 
    ;
@@ -22,8 +22,7 @@ export default function AdminDashboard(){
 
         <div >
             <Link href={"/"} >
-                return to home
-            </Link>
+                return to home            </Link>
             <div className="flex min-w-80 m-auto justify-center mt-20 gap-20">
                 <AdminBtn  text="Add an Item" selected={selectedButton === "add"}  setButton={()=> setSelectedButton("add")} setComponent={() => updateComponent(<AddItem />)} />
                 <AdminBtn  text="Delete Items"selected={selectedButton === "delete"} setButton={()=> setSelectedButton("delete")} setComponent={() => updateComponent(<DeleteItem />)} />

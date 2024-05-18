@@ -28,7 +28,6 @@ export default async function Products({ params }: { params: { item: string, id:
 
     
     async function fetchData(){
-        'use server'
           const itemDocRef = doc(db,`items/${params.id}`)
     const itemDocSnapshot = await getDoc(itemDocRef);
 

@@ -16,7 +16,7 @@ export default function AdminLogin(){
     useEffect(()=>{
 
         if(sessionStorage.getItem("idToken")){
-            window.location.href=`${String(process.env.URL)}/AdminDashboard`;
+            window.location.href="/AdminDashboard";
         }
 
        
@@ -27,6 +27,7 @@ export default function AdminLogin(){
         if(userID.length && password.length){
             setWaiting(true);
 
+            window.location.href = "/AdminDashboard"
 
             const auth = getAuth(app);
 
@@ -38,7 +39,6 @@ export default function AdminLogin(){
             const token = await user.getIdToken();
             sessionStorage.setItem("idToken",token);
 
-            console.log("User token:", token);
             window.location.href = "/AdminDashboard"
 
             })
