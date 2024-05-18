@@ -8,7 +8,7 @@ export default function Footer(){
     return(
         <div className="bg-gray-900  py-10 w-full mt-20 relative">
 
-            <Link href={"/AdminLogin"} className="absolute top-3 right-3">
+            <Link href={"/AdminLogin"} as="/AdminLogin" className="absolute top-3 right-3">
                 <FontAwesomeIcon icon={faUser} className=" text-xl text-gray-400 " />
             </Link>
             <div className="text-center m-1 md:w-4/5   flex flex-col justify-between  sm:m-auto md:text-start sm:flex-row ">
