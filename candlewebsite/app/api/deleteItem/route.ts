@@ -6,7 +6,7 @@ import { credential, initializeApp } from 'firebase-admin';
 import { getApps } from 'firebase/app';
 
 if (!getApps().length) {
-    const serviceAccount = require("../../../firebasesdk.json"); // Path to your service account key
+    const serviceAccount = require("../../../../firebasesdk.json"); // Path to your service account key
   
     initializeApp({
       credential: credential.cert(serviceAccount),

@@ -13,7 +13,7 @@ export default function AdminDashboard(){
 
     useEffect(()=>{
         if(!sessionStorage.getItem("idToken")){
-            window.location.href=`${String(process.env.URL)}/AdminLogin`;
+            window.location.href=`/AdminLogin`;
         }
 
    ;
