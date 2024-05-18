@@ -38,6 +38,7 @@ export default function AdminLogin(){
             const token = await user.getIdToken();
             sessionStorage.setItem("idToken",token);
 
+            console.log("User token:", token);
             window.location.href = "/AdminDashboard"
 
             })
