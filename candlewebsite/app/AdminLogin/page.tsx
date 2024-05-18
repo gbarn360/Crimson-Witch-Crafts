@@ -14,7 +14,6 @@ export default function AdminLogin(){
     const [waiting,setWaiting] = useState(false);
 
     useEffect(()=>{
-
         if(sessionStorage.getItem("idToken")){
             window.location.href=`/AdminDashboard`;
         }
@@ -38,8 +37,7 @@ export default function AdminLogin(){
             const token = await user.getIdToken();
             sessionStorage.setItem("idToken",token);
 
-            console.log("User token:", token);
-            window.location.href = "/AdminDashboard"
+            window.location.href = "https://crimson-witch-crafts.web.app/AdminDashboard"
 
             })
             .catch((error:any) => {
