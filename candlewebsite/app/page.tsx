@@ -27,7 +27,7 @@ export default function Home() {
 
     return (
         <Provider store={store}>
-            updated test
+            test
                 <Navbar />
                 {items.length > 0 ? <ContentContainer items={items}/> : <LoadingItemThumbnails /> }
                 <Footer />            

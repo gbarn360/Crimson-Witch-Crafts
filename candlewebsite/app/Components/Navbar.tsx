@@ -29,12 +29,12 @@ export default function Navbar() {
                             <ItemLink itemName={"Containers"} />
                         </Link>
 
-                        <Link href={"/about"} as="/about">
+                        <Link href={"/about"}>
                             <ItemLink itemName={"About Us"} />
                         </Link>
                     </div>
                     <div className="flex gap-5 absolute right-0">
-                        <Link href={"/Cart"} as="/Cart" className="relative">
+                        <Link href={"/Cart"} className="relative">
                             <FontAwesomeIcon icon={faCartShopping} className=" text-customRed text-xl" />
                         </Link>
                         {/* <Link href={"#"}>
