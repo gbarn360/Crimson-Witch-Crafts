@@ -9,7 +9,7 @@ import Quantity from "./Quantity";
 
 
 
-export default function ItemContent({ item,id }: { item: Item,id:string }) {
+export default function ItemContent({ item }: { item: Item}) {
 
     const dispatch = useDispatch();
     const [image, setImage] = useState(item.image[0]);
@@ -18,7 +18,7 @@ export default function ItemContent({ item,id }: { item: Item,id:string }) {
     const [displayMessage, setDisplayMessage] = useState(false);
 
     function addItemToCart() {
-        dispatch(addItem({ id: id, name: item.name, image: item.image,itemPrice:item.price, totalPrice: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
+        dispatch(addItem({ id: item.id, name: item.name, image: item.image,itemPrice:item.price, totalPrice: item.price * quantity, color: color, colorOptions: item.colorOptions, quantity: quantity }));
 
         setDisplayMessage(true);
         setTimeout(() => { setDisplayMessage(false) }, 3000);

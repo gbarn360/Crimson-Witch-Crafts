@@ -33,6 +33,8 @@ export default async function Products({ params }: { params: { item: string, id:
 
     if (itemDocSnapshot.exists()) {
         const itemData = itemDocSnapshot.data() as Item;
+        itemData.id = params.id;
+        console.log(itemData);
        return(<ItemContainer item={itemData}/>)
     } else {
         console.log("error");

@@ -26,7 +26,7 @@ export default function ItemContainer({item}:{item:Item}){
         <Provider store={store}>
             <Navbar />
             {item ?
-                <ItemContent item={item} id={item.id} /> :
+                <ItemContent item={item}  /> :
                 <LoadingItemThumbnails />
             }
             <Footer />
