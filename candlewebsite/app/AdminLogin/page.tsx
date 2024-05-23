@@ -37,7 +37,7 @@ export default function AdminLogin(){
             const token = await user.getIdToken();
             sessionStorage.setItem("idToken",token);
 
-            window.location.href = "https://crimson-witch-crafts.web.app/AdminDashboard"
+            window.location.href = "/AdminDashboard"
 
             })
             .catch((error:any) => {

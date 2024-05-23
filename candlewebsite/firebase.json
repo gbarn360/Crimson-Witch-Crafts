@@ -5,7 +5,56 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/about",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/OrderSuccess",
+        "destination": "/OrderSuccess.html"
+      },
+      {
+        "source": "/Cart",
+        "destination": "/Cart.html"
+      },
+      {
+        "source": "/AdminLogin",
+        "destination": "/AdminLogin.html"
+      },
+      {
+        "source": "/AdminDashboard",
+        "destination": "/AdminDashboard.html"
+      },
+      {
+        "source": "/category/Candles",
+        "destination": "/category/Candles.html"
+      },
+      {
+        "source": "/category/Wax_Melts",
+        "destination": "/category/Wax_Melts.html"
+      },
+      {
+        "source": "/category/Containers",
+        "destination": "/category/Containers.html"
+      },
+      {
+        "source": "/category/Dessert_Candles",
+        "destination": "/category/Dessert_Candles.html"
+      },
+      {
+        "source": "/category/Jarred_Candles",
+        "destination": "/category/Jarred_Candles.html"
+      },
+      {
+        "source": "/category/Sculptural_Candles",
+        "destination": "/category/Sculptural_Candles.html"
+      },
+      {
+        "source": "/products/**",
+        "destination": "/index.html"
+      }
     ]
-  
   }
 }
