@@ -2,7 +2,7 @@
 
 import { RootState } from "@/app/State/state";
 import { useSelector } from "react-redux";
-import { checkoutUser } from "../services";
+import { checkoutUser } from "@/app/services"
 import CartItem from "./CartItem";
 export default function CartContent() {
     const cart = useSelector((state : RootState)=> state.cart.cartItems)

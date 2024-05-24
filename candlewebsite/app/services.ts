@@ -4,8 +4,10 @@ import Item, { CartItemI } from "./Interfaces";
 
 
 export async function checkoutUser(cart: CartItemI[]) {
+    
+    let filteredCart = cart.map(item => ( {name:item.name,price:item.itemPrice,quantity:item.quantity}));
     try {
-        const response = await axios.post("/api/checkout",cart); 
+        const response = await axios.post("/api/checkout",filteredCart); 
         window.location = response.data.url;
     } catch (error) {
         console.error("Error checking out:", error);

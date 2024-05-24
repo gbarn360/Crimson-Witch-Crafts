@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import Navbar from "./Components/Navbar";
 import { useState, useEffect} from 'react';
 import Item from '@/app/Interfaces';
-import { getAllItems } from '@/app/services';
+import { getAllItems} from "@/app/services"
 import ContentContainer from "./Components/ContentContainer";
 import Footer from "./Components/Footer";
 import LoadingItemThumbnails from "./Components/LoadingItemThumbnails";
