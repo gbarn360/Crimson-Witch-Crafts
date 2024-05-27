@@ -29,6 +29,10 @@ export default function Navbar() {
                             <ItemLink itemName={"Containers"} />
                         </Link>
 
+                        <Link href={"/category/[category]"} as="/category/Other_Creations">
+                            <ItemLink itemName={"Other Creations"} />
+                        </Link>
+
                         <Link href={"/about"}>
                             <ItemLink itemName={"About Us"} />
                         </Link>

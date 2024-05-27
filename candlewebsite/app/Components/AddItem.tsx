@@ -18,7 +18,7 @@ export default function AddItem(){
     const [message,setMessage] = useState("");
     const [addingItem,setAddingItem] = useState(false);
 
-    const categories = ["Dessert Candles", "Jarred Candles", "Sculptural Candles","Wax Melts", "Containers"];
+    const categories = ["Dessert Candles", "Jarred Candles", "Sculptural Candles","Wax Melts", "Containers","Other Creations"];
 
     function resetInputFields(){
         setName("");
@@ -132,6 +132,7 @@ export default function AddItem(){
       }
     return(
         <div  className="flex flex-col min-w-80 ">
+
                     <label>Product Name</label>
                     <input type="text" className="border-2 " value={name} onChange={(e)=>setName(e.target.value)}/>
 

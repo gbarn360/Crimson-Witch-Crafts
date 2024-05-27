@@ -51,6 +51,10 @@ export default function HamburgerMenu(){
                             <HamburgerItemLink itemName={"Containers"} />
                         </Link>
 
+                        <Link href={"/category/[category]"} as="/category/Other_Creations">
+                            <HamburgerItemLink itemName={"Other Creations"} />
+                        </Link>
+
                         <Link href={"/about"}>
                             <HamburgerItemLink itemName={"About Us"} />
                         </Link>

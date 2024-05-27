@@ -11,6 +11,8 @@ export function generateStaticParams() {
         {category:"Dessert_Candles"},
         {category:"Jarred_Candles"},
         {category:"Sculptural_Candles"},
+        {category:"Other_Creations"}
+
     ];
 
 }
