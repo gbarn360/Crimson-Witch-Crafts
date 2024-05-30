@@ -1,7 +1,7 @@
 
 import {onRequest} from "firebase-functions/v2/https";
 import Stripe from "stripe";
-import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc} from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, setDoc,getDoc, deleteDoc} from 'firebase/firestore';
 import {app} from "./setup"
 import { getAuth } from "firebase-admin/auth";
 import { getApps, initializeApp } from "firebase-admin/app";
@@ -36,6 +36,22 @@ interface Item {
 const key = "sk_test_51OwnIOJE8lHoR2TXxkw1OKubluVXFIAiy9gFSRhGR2sfFGTy0rNXMOZIaiRQmbfIaDhuPYwieSJbu3hcKXHQiQnq00TWhTJCXd"
 const stripe = new Stripe(key,{
     apiVersion: "2023-10-16"
+})
+
+export const getIndItem = onRequest(async(request:any,response:any)=>{
+    const id = request.headers.id;
+
+
+
+    try{
+        const docRef = doc(db,"items",id);
+
+        const item = (await getDoc(docRef)).data() as Item;
+        item.id = id;
+        return response.json({item:item});
+    }catch(error){
+        console.log("error fetching ind item: " + error);
+    }
 })
 
 

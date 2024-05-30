@@ -51,8 +51,9 @@
         "source": "/category/Sculptural_Candles",
         "destination": "/category/Sculptural_Candles.html"
       },
-      {"source": "/products/*/*",
-        "destination":"/products/*/*"
+      {
+        "source": "/products/*",
+        "destination":"/products.html"
       }
     ]
   },

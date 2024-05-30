@@ -28,7 +28,7 @@ export default function CartItem({index,item}:{index:number,item:CartItemI}) {
 
     return(
         <div className=" m-auto sm:flex my-2 border-y-2 w-3/4 sm:w-full p-4">
-            <Link key={index} href={"/products/[itemPage][id]"} as={`/products/${item.name.replace(/\s/g, "_")}/${item.id}`} className='w-1/4 xl:w-1/5'>
+            <Link key={index} href={`/products?id=${item.id}`} as={`/products/${item.id}`} className='w-1/4 xl:w-1/5'>
                 <img loading="lazy" src={item.image[0]} className=""/>
             </Link>
             <div className="mt-2 ml-2 w-full  flex flex-col justify-evenly">

@@ -24,19 +24,19 @@ export async function getAllItems() {
     }
 }
 
-// export async function getIndividualItem(id: string) {
-//     try {
-//         const response = await axios.get(`/api/getIndividualItem`,{
-//             headers:{
-//                "id":`${id}`
-//             }
-//         }); 
-//         return response.data;
-//     } catch (error) {
-//         console.error("Error fetching item:", error);
-//         return [];
-//     }
-// }
+export async function getIndividualItem(id: string) {
+    try {
+        const response = await axios.get("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/getIndItem",{
+            headers:{
+               "id":`${id}`
+            }
+        }); 
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching item:", error);
+        return [];
+    }
+}
 
 
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
