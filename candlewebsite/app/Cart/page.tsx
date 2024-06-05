@@ -1,20 +1,14 @@
-'use client'
 
-import Navbar from "../Components/Navbar"
-import CartContent from "../Components/CartContent";
-import { Provider } from "react-redux";
-import Footer from "../Components/Footer";
-import { store } from "../State/state";
+'use client'
+import dynamic from 'next/dynamic'
+ 
+const NoSSR = dynamic(() => import('../Components/CartContainer'), { ssr: false })
+
+
 export default function Cart() {
 
 
     return (
-        <Provider store={store} >
-          
-            <Navbar />
-            <CartContent />
-            <Footer />
-   
-        </Provider>
+       <NoSSR />
     )
 }

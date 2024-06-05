@@ -7,7 +7,7 @@ export async function checkoutUser(cart: CartItemI[]) {
     
     let filteredCart = cart.map(item => ( {name:item.name,price:item.itemPrice,quantity:item.quantity}));
     try {
-        const response = await axios.post("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/checkout",filteredCart); 
+        const response = await axios.post("https://checkout-arreqrjsua-uc.a.run.app",filteredCart); 
         window.location = response.data.url;
         
     } catch (error) {
@@ -16,7 +16,7 @@ export async function checkoutUser(cart: CartItemI[]) {
 }
 export async function getAllItems() {
     try {
-        const response = await axios.get("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/getItems"); 
+        const response = await axios.get("https://getitems-arreqrjsua-uc.a.run.app");
         return response.data;
     } catch (error) {
         console.error("Error fetching items:", error);
@@ -26,7 +26,7 @@ export async function getAllItems() {
 
 export async function getIndividualItem(id: string) {
     try {
-        const response = await axios.get("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/getIndItem",{
+        const response = await axios.get("https://getinditem-arreqrjsua-uc.a.run.app",{
             headers:{
                "id":`${id}`
             }
@@ -42,7 +42,7 @@ export async function getIndividualItem(id: string) {
 export async function addItem(item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
     const token = sessionStorage.getItem("idToken");
 
-    const response = await axios.post("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/addItem",item,{
+    const response = await axios.post("https://additem-arreqrjsua-uc.a.run.app",item,{
         headers:{
            'Authorization': `Bearer ${token}`,
         }
@@ -54,7 +54,7 @@ export async function deleteItem(deletedItems : Item[]){
     const token = sessionStorage.getItem("idToken");
 
     let ids = deletedItems.map(item => {return item.id});
-    await axios.post("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/deleteItem",ids,{
+    await axios.post("https://deleteitem-arreqrjsua-uc.a.run.app",ids,{
         headers:{
            'Authorization': `Bearer ${token}`,
         }
@@ -63,7 +63,7 @@ export async function deleteItem(deletedItems : Item[]){
 
 export  async function updateItem(id:string,item:{name: string,category: string,price: number,image: string[],materials: string[],description: string,colorOptions?: string[]}){
     const token = sessionStorage.getItem("idToken");
-    const response = await axios.post("http://127.0.0.1:5001/crimson-witch-crafts/us-central1/updateItem",{
+    const response = await axios.post("https://updateitem-arreqrjsua-uc.a.run.app",{
         id:id,
         item:item,
     },{

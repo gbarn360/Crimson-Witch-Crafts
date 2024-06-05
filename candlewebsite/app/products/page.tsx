@@ -2,7 +2,6 @@
 
 import {useEffect,useState} from "react"
 import { getIndividualItem } from "../services";
-import ItemContainer from "../Components/ItemContainer"
 import { Provider } from "react-redux";
 import Navbar from "../Components/Navbar";
 import { store } from "../State/state";

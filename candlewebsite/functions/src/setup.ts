@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import Stripe from "stripe";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD_yuNQgMee7pXM4tVFw1J8YWwpaG0kHFs",
@@ -14,5 +15,8 @@ const firebaseConfig = {
 
 
   
-
+  const key = "sk_test_51OwnIOJE8lHoR2TXxkw1OKubluVXFIAiy9gFSRhGR2sfFGTy0rNXMOZIaiRQmbfIaDhuPYwieSJbu3hcKXHQiQnq00TWhTJCXd"
+  export const stripe = new Stripe(key,{
+      apiVersion: "2024-04-10"
+  })
   

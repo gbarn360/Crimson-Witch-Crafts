@@ -1,12 +1,11 @@
-import { CartItemI } from "@/app/Interfaces"
 import { createSlice } from "@reduxjs/toolkit";
 import { CartState } from "@/app/Interfaces";
 
 
-function loadCartState(): CartState {
+export const loadCartState = (): CartState => {
     let initialState: CartState;
 
-    if (typeof window !== 'undefined' && window.localStorage) {
+    if (typeof window !== 'undefined' && localStorage !== undefined) {
         const storedState = localStorage.getItem("cartState");
         if (storedState) {
             const { cart, expires } = JSON.parse(storedState);
@@ -25,17 +24,15 @@ function loadCartState(): CartState {
     }
 
     return initialState;
-}
+};
 
-
-function saveCartState(state: CartState): void {
+export const saveCartState = (state: CartState): void => {
     if (typeof window !== 'undefined' && window.localStorage) {
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 2); // Set expiration 2 days from now
         localStorage.setItem("cartState", JSON.stringify({ cart: state, expires: expirationDate.getTime() }));
     }
-}
-
+};
 
 
 const initialState : CartState = loadCartState();
