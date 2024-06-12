@@ -19,7 +19,7 @@ export default function AddItem(){
     const [addingItem,setAddingItem] = useState(false);
 
     const categories = ["Dessert Candles", "Jarred Candles", "Sculptural Candles","Wax Melts", "Containers","Other Creations"];
-
+    
     function resetInputFields(){
         setName("");
         setCategory("");
@@ -130,6 +130,10 @@ export default function AddItem(){
             setColorOptions(prevColors => prevColors.filter(color => color !== item));
         }
       }
+
+      const addColors = ()=>{
+        setColorOptions(["Black","White","Red","Rose Gold","Violet","Wine Red","Orange","Yellow","Gold", "Blue","Bright bout","Aquamarine","Olive green","Bright green","Lime green","Silver","Teal","Bronze","Gray"]);
+      }
     return(
         <div  className="flex flex-col min-w-80 ">
 
@@ -160,7 +164,7 @@ export default function AddItem(){
                     <label>description</label>
                     <textarea value={description} onChange={(e)=>setDescription(e.target.value)} className="h-20 border-2"></textarea>
                    
-                    <label>Color Options</label>
+                    <label className="flex justify-between">Color Options <button onClick={()=>{addColors()}} className="text-sm">add default colors</button></label>
                     <input className="border-2" type="text" onKeyDown={(e)=>updateListing("color",e)}/>
                     <div className="flex gap-2">
                         {colorOptions.map((color,index) =>(<div key={index}><h2>{color}</h2> <button onClick={()=>{removeItem(color,"color")}} className="text-customRed">remove</button></div>))}

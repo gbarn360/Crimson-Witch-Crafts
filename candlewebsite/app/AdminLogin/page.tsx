@@ -9,7 +9,7 @@ export default function AdminLogin(){
 
     const[userID,setUserID] = useState("");
     const[password,setPassword] = useState("");
-
+    const[showPassword,setShowPassword] = useState("password");
     const [error,setError] = useState("");
     const [waiting,setWaiting] = useState(false);
 
@@ -59,12 +59,14 @@ export default function AdminLogin(){
             {waiting ? <div className="mt-60"> <Loading /> </div> :<div className="m-auto relative  p-2 border-2 border-customRed flex flex-col items-center ">
                 <h1 className="font-bold text-3xl "><button onClick={()=>window.location.href = "/"} className="text-xs absolute left-1 text-gray-400">back</button>Login </h1>
 
-                <form onSubmit={(e)=>{e.preventDefault();signIn()}} className="flex flex-col gap-2 mt-5 items-center">
-                    <input type="text" className="border-2 w-2/3" placeholder="UserName" onChange={(e)=>setUserID(e.target.value)}/>
-                    <input type="password" className="border-2 w-2/3" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-
+                <form onSubmit={(e)=>{e.preventDefault();signIn()}} className="flex flex-col gap-2 mt-5">
+                    <input type="text" className="border-2 w-3/4" placeholder="UserName" onChange={(e)=>setUserID(e.target.value)}/>
+                    <div className="">
+                        <input type={showPassword} className="border-2 w-3/4" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <button className="ml-2" onClick={(e)=> {e.preventDefault();showPassword === "password" ? setShowPassword("text") : setShowPassword("password")}}>show</button>
+                    </div>
                     <div className="relative flex flex-col items-center w-full">
-                        <button className="border-2 px-2 py-1">Submit</button>
+                        <button className="border-2 px-2 py-1">login</button>
                         {/* <button onClick={(e)=>resetCredentials(e)} className="absolute right-0 text-xs  text-gray-400">reset</button> */}
                         <h1 className="text-customRed">{error}</h1>
                     </div>
