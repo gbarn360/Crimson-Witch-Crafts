@@ -7,6 +7,8 @@ typings/
 
 firebasesdk.json
 
+setup.ts
+
 # Node.js dependency directory
 node_modules/
 *.local
