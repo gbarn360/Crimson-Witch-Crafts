@@ -1,7 +1,7 @@
 # Crimson Witch Crafts 
 Worked with a local business to design and develop an ecommerce website
 
-# Technologies used 
+## Technologies used 
 ### Next
 ### Typescript
 ### Tailwind
