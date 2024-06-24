@@ -6,7 +6,7 @@ Worked with a local business to design and develop an ecommerce website
 ### Typescript
 ### Redux
 ### GCP (Firebase) 
-## Stripe API (for automated checkout)
+### Stripe API (for automated checkout)
 
 <img src="https://github.com/gbarn360/portfolio/blob/main/public/pictures/Crimson/home.PNG" />
 <img src="https://github.com/gbarn360/portfolio/blob/main/public/pictures/Crimson/product%20page.PNG" />
