@@ -33,9 +33,9 @@ export default function Navbar() {
                             <ItemLink itemName={"Other Creations"} />
                         </Link>
 
-                        <Link href={"/about"}>
+                        {/* <Link href={"/about"}>
                             <ItemLink itemName={"About Us"} />
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className="flex gap-5 absolute right-0">
                         <Link href={"/Cart"} className="relative">

@@ -55,9 +55,9 @@ export default function HamburgerMenu(){
                             <HamburgerItemLink itemName={"Other Creations"} />
                         </Link>
 
-                        <Link href={"/about"}>
+                        {/* <Link href={"/about"}>
                             <HamburgerItemLink itemName={"About Us"} />
-                        </Link>
+                        </Link> */}
                    </div>
                 </div>
             </div> :
