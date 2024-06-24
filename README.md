@@ -4,6 +4,7 @@ Worked with a local business to design and develop an ecommerce website
 # Technologies used 
 ### Next
 ### Typescript
+### Tailwind
 ### Redux
 ### GCP (Firebase) 
 ### Stripe API (for automated checkout)
