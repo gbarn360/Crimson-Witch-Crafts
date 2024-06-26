@@ -2,10 +2,12 @@
 
 import { RootState } from "@/app/State/state";
 import { useSelector } from "react-redux";
-
+import Loading from "./Loading"
 import { checkoutUser } from "../services"
 import CartItem from "./CartItem";
+import { useState } from "react";
 export default function CartContent() {
+    const [loading,setLoading] = useState(false);
     const cart = useSelector((state : RootState)=> state.cart.cartItems)
 
     function getTotalPrice(){
@@ -18,6 +20,7 @@ export default function CartContent() {
     return (
 
             <div className="flex flex-col min-h-screen justify-between ">
+                {loading === false ?
             <div>
                 <h1 className="bg-green-300 w-full h-10 text-center fixed bottom-0">Currently in development</h1>
                     {cart.length !== 0 ?
@@ -27,7 +30,7 @@ export default function CartContent() {
                                 {cart.map((item, index) => (<CartItem key={index} index={index} item={item}/>))}
                             </div>
                             <div className="relative w-1/2 sm:w-full flex flex-col sm:flex-row ">
-                                <button onClick={()=>checkoutUser(cart)} className="mb-4 p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
+                                <button onClick={()=>{setLoading(true);checkoutUser(cart)}} className="mb-4 p-2 border-2 text-xl hover:bg-customRed hover:transition-colors hover:text-white hover:border-customRed">Checkout</button>
                                 <h2 className="text-center sm:absolute right-0 top-0 text-lg">Total: <span className="font-bold">${getTotalPrice()}</span></h2>
                             </div>
                         </div> :
@@ -36,6 +39,7 @@ export default function CartContent() {
                         </div>
                     }
             </div>
+                : <Loading />}
             </div>
 
     )

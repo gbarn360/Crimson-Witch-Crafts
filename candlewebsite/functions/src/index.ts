@@ -100,12 +100,28 @@ export const checkout = onRequest(async(request:any, response:any) => {
                 }
             }),
             mode: 'payment',
-            success_url: `https://crimson-witch-crafts.web.app/OrderSuccess`,
+            success_url: `https://crimson-witch-crafts.web.app/OrderSuccess?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `https://crimson-witch-crafts.web.app/Cart` 
         })
-        return response.json({url:session.url})
+        return response.json({session:session,url:session.url})
     });
      
+});
+
+export const getCheckoutInfo = onRequest(async(request:any, response:any) => {
+
+    cors(request, response, async() => {
+
+        const {session_id} = request.body;
+
+        const session = await stripe.checkout.sessions.retrieve(String(session_id));
+        const lineItems = await stripe.checkout.sessions.listLineItems(String(session_id));
+        
+       
+
+        return response.json({session:session,lineItems:lineItems});
+
+    });
 });
 
 export const addItem = onRequest(async(request:any, response:any) => {

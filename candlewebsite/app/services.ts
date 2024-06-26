@@ -14,6 +14,15 @@ export async function checkoutUser(cart: CartItemI[]) {
         console.error("Error checking out:", error);
     }
 }
+export async function getCheckoutInfo(session_id:string){
+    try{
+        console.log(session_id);
+        const response = await axios.post("https://getCheckoutInfo-arreqrjsua-uc.a.run.app",{session_id:session_id});
+        return response.data;
+    }catch(error){
+        console.log("error retreiving checkout info: ",error);
+    }
+}
 export async function getAllItems() {
     try {
         const response = await axios.get("https://getitems-arreqrjsua-uc.a.run.app");
