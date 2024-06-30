@@ -87,12 +87,13 @@ export const checkout = onRequest(async(request:any, response:any) => {
             payment_method_types: ['card'],
             tax_id_collection : {'enabled' : true},
             billing_address_collection: 'required',
-            line_items: data.map((item: { name: any; price: number; quantity: any; })=>{
+            line_items: data.map((item: { name: any; price: number; quantity: any;color:any })=>{
                 return{
                     price_data:{
                         currency:'usd',
                         product_data: {
-                            name:item.name
+                            name:item.name + "(" + item.color + ")",
+                            
                         }, 
                         unit_amount : item.price * 100 //price in cents
                     },

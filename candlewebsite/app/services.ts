@@ -4,8 +4,7 @@ import Item, { CartItemI } from "./Interfaces";
 
 
 export async function checkoutUser(cart: CartItemI[]) {
-    
-    let filteredCart = cart.map(item => ( {name:item.name,price:item.itemPrice,quantity:item.quantity}));
+    let filteredCart = cart.map(item => ( {name:item.name,price:item.itemPrice,quantity:item.quantity,color:item.color}));
     try {
         const response = await axios.post("https://checkout-arreqrjsua-uc.a.run.app",filteredCart); 
         window.location = response.data.url;
@@ -16,7 +15,6 @@ export async function checkoutUser(cart: CartItemI[]) {
 }
 export async function getCheckoutInfo(session_id:string){
     try{
-        console.log(session_id);
         const response = await axios.post("https://getCheckoutInfo-arreqrjsua-uc.a.run.app",{session_id:session_id});
         return response.data;
     }catch(error){
